@@ -1,0 +1,155 @@
+    <header><img id="banner" src="images/Grafiskt material/tonys-pizza-logo.svg" alt="">
+
+    <img src="images/Grafiskt material/tonys-pizza-basket.svg" id="basket-img" alt=""></header>
+
+    <section id="menu-section">
+        <div id="pizza-container">
+
+            <div class="pizza-card">
+
+                <img src="images/Grafiskt material/margherita.svg" alt="">
+
+                <div class="info-container">
+                    <h3>Margherita</h3>
+                    <ul>Tomatsås</ul>
+                    <ul>Mozzarella</ul>
+                    <ul>Basilika</ul>
+
+                    <div class="button-container">
+                        <button class="customize-button">Anpassa</button>
+                        <button class = "purchase-button">Köp</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pizza-card">
+
+                <img src="images/Grafiskt material/capricciosa.svg" alt="">
+
+                <div class="info-container">
+                    <h3>Capricciosa</h3>
+                    <ul>Tomatsås</ul>
+                    <ul>Mozarella</ul>
+                    <ul>Skinka</ul>
+                    <ul>Svamp</ul>
+                    <ul>Kronärtskocka</ul>
+
+
+                    <div class="button-container">
+                        <button class="customize-button">Anpassa</button>
+                        <button class = "purchase-button">Köp</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pizza-card">
+
+                <img src="images/Grafiskt material/marinara.svg" alt="">
+
+                <div class="info-container">
+                    <h3>Marinara</h3>
+                    <ul>Tomatsås</ul>
+                    <div class="button-container">
+                        <button class="customize-button">Anpassa</button>
+                        <button class = "purchase-button">Köp</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pizza-card">
+
+                <img src="images/Grafiskt material/quattro-formaggi.svg" alt="">
+
+                <div class="info-container">
+                    <h3>Quattro formaggi</h3>
+                    <ul>Tomatsås</ul>
+                    <ul>Mozzarella</ul>
+                    <ul>Parmesan</ul>
+                    <ul>Pecorino</ul>
+                    <ul>Gorgonzola</ul>
+
+                    <div class="button-container">
+                        <button class="customize-button">Anpassa</button>
+                        <button class = "purchase-button">Köp</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pizza-card">
+
+                <img src="images/Grafiskt material/prosciutto-e-funghi.svg" alt="">
+
+                <div class="info-container">
+                    <h3>Prosciutto e funghi</h3>
+                    <ul>Tomatsås</ul>
+                    <ul>Mozzarella</ul>
+                    <ul>Skinka</ul>
+                    <ul>Svamp</ul>
+
+                    <div class="button-container">
+                        <button class="customize-button">Anpassa</button>
+                        <button class = "purchase-button">Köp</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pizza-card">
+
+                <img src="images/Grafiskt material/ortolana.svg" alt="">
+
+                <div class="info-container">
+                    <h3>Ortolana</h3>
+                    <ul>Tomatsås</ul>
+                    <ul>Mozzarella</ul>
+                    <ul>Paprika</ul>
+                    <ul>Aubergine</ul>
+                    <ul>Zucchini</ul>
+
+                    <div class="button-container">
+                        <button class="customize-button">Anpassa</button>
+                        <button class = "purchase-button">Köp</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pizza-card">
+
+                <img src="images/Grafiskt material/quattro-stagioni.svg" alt="">
+
+                <div class="info-container">
+                    <h3>Quattro stagioni</h3>
+                    <ul>Tomatsås</ul>
+                    <ul>Mozzarella</ul>
+                    <ul>Skinka</ul>
+                    <ul>Svamp</ul>
+                    <ul>Kronärtskocka</ul>
+                    <ul>Oliver</ul>
+
+                    <div class="button-container">
+                        <button class="customize-button">Anpassa</button>
+                        <button class = "purchase-button">Köp</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pizza-card">
+
+                <img src="images/Grafiskt material/diavola.svg" alt="">
+
+                <div class="info-container">
+                    <h3>Diavola</h3>
+                    <ul>Tomatsås</ul>
+                    <ul>Mozzarella</ul>
+                    <ul>Salami</ul>
+                    <ul>Paprika</ul>
+                    <ul>Chili</ul>
+
+                    <div class="button-container">
+                        <button class="customize-button">Anpassa</button>
+                        <button class = "purchase-button">Köp</button>
+                    </div>
+                </div>
+            </div>
+
+
+    </section>

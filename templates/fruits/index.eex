@@ -17,13 +17,3 @@
 
 
 
-<ul>
-  <%= for pizzas <- pizzas do %>
-    <li>
-    	<a href="/pizzas/<%= pizzas.id %>">
-			<%= pizzas.name %> - <%= pizzas.tastiness %>
-		</a>
-	</li>
-  <% end %>
-</ul>
-<a href="/pizzas/new">Add new pizzas</a>

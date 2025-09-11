@@ -2,12 +2,12 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
-
+<<<<<<< HEAD
   alias Pluggy.HomeController
-
-
+  alias Pluggy.FruitController
+=======
   alias Pluggy.PizzaController
-
+>>>>>>> dbab263a9943dc1681259c39d6e569d5f7634920
   alias Pluggy.UserController
 
   plug(Plug.Static, at: "/", from: :pluggy)
@@ -26,7 +26,13 @@ defmodule Pluggy.Router do
   plug(:match)
   plug(:dispatch)
 
+<<<<<<< HEAD
   get("/", do: HomeController.index(conn))
+  get("/fruits", do: FruitController.index(conn))
+  get("/fruits/new", do: FruitController.new(conn))
+  get("/fruits/:id", do: FruitController.show(conn, id))
+  get("/fruits/:id/edit", do: FruitController.edit(conn, id))
+=======
   get("/pizzas", do: PizzaController.index(conn))
   get("/pizzas/new", do: PizzaController.new(conn))
   get("/pizzas/:id", do: PizzaController.show(conn, id))

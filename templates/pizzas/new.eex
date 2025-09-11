@@ -1,0 +1,7 @@
+<h1>Pizzas.new (/pizzas/new)</h1>
+
+<form action="/pizzas/" method="post" enctype="multipart/form-data">
+	<input type="text" name="name" />
+	<input type="text" name="price" />
+	<button type=submit>Create pizza</button>
+</form>

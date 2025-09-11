@@ -11,8 +11,11 @@ defmodule Mix.Tasks.Seed do
 
   defp drop_tables() do
     IO.puts("Dropping tables")
-    Postgrex.query!(DB, "DROP TABLE IF EXISTS fruits", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS ingredients", [], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "DROP TABLE IF EXISTS users", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS fruits", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS pizzas", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS orders", [], pool: DBConnection.ConnectionPool)
   end
 
   defp create_tables() do
@@ -20,7 +23,14 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(
       DB,
-      "Create TABLE fruits (id SERIAL, name VARCHAR(255) NOT NULL, tastiness INTEGER NOT NULL)",
+      "Create TABLE pizzas (id SERIAL, order_id INTEGER, completion INTEGER, pizza_name VARCHAR(255) NOT NULL, price INTEGER NOT NULL, glutenfree BOOLEAN NOT NULL, size BOOLEAN NOT NULL, tomato INTEGER NOT NULL, mozzarella INTEGER NOT NULL, parmesan INTEGER NOT NULL, pecorino INTEGER NOT NULL, gorgonzola INTEGER NOT NULL, ham INTEGER NOT NULL, basil INTEGER NOT NULL, mushroom INTEGER NOT NULL, artichoke INTEGER NOT NULL, olives INTEGER NOT NULL, pepper INTEGER NOT NULL, salami INTEGER NOT NULL, aubergine INTEGER NOT NULL, zucchini INTEGER NOT NULL, chili INTEGER NOT NULL)",
+      [],
+      pool: DBConnection.ConnectionPool
+    )
+
+    Postgrex.query!(
+      DB,
+      "Create TABLE orders (id SERIAL, username VARCHAR(255) NOT NULL, password_hash CHAR(72) NOT NULL)",
       [],
       pool: DBConnection.ConnectionPool
     )
@@ -36,17 +46,12 @@ defmodule Mix.Tasks.Seed do
   defp seed_data() do
     IO.puts("Seeding data")
 
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Apple", 5],
+    Postgrex.query!(DB, "INSERT INTO pizzas (order_id, completion, pizza_name, price, glutenfree, size, tomato, mozzarella, parmesan, pecorino, gorgonzola, ham, basil, mushroom, artichoke, olives, pepper, salami, aubergine, zucchini, chili) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)",
+      [1, 0, "Margherita", 85, false, false, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+
       pool: DBConnection.ConnectionPool
     )
 
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Pear", 4],
-      pool: DBConnection.ConnectionPool
-    )
-
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Banana", 7],
-      pool: DBConnection.ConnectionPool
-    )
 
     Postgrex.query!(
       DB,

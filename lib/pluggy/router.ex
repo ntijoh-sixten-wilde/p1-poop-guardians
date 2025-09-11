@@ -4,7 +4,6 @@ defmodule Pluggy.Router do
 
 
   alias Pluggy.HomeController
-  alias Pluggy.FruitController
   alias Pluggy.PizzaController
   alias Pluggy.UserController
 

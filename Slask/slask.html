@@ -40,9 +40,90 @@
         
         </div>
     </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_aubergine" style="margin: 10px;"> + </button>
+        <p> aubergine </p>
+        <button id="remove_aubergine" style="margin: 10px;"> - </button>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_basil" style="margin: 10px;"> + </button>
+        <p> basilika </p>
+        <button id="remove_basil" style="margin: 10px;"> - </button>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_chili" style="margin: 10px;"> + </button>
+        <p> chili </p>
+        <button id="remove_chili" style="margin: 10px;"> - </button>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_gorgonzola" style="margin: 10px;"> + </button>
+        <p> gorgonzola </p>
+        <button id="remove_gorgonzola" style="margin: 10px;"> - </button>
+    </div>
 
-    <button id="add_sausage" style="margin-top: 10px;"> lägg till korv </button>
-    <button id="remove_sausage" style="margin-top: 10px;"> ta bort korv </button>
+    <div style="display: flex; align-items: center;">
+        <button id="add_sausage" style="margin: 10px;"> + </button>
+        <p> korv </p>
+        <button id="remove_sausage" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_artichoke" style="margin: 10px;"> + </button>
+        <p> kronärtskocka </p>
+        <button id="remove_artichoke" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_mozzarella" style="margin: 10px;"> + </button>
+        <p> mozzarella </p>
+        <button id="remove_mozzarella" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_olive" style="margin: 10px;"> + </button>
+        <p> oliver </p>
+        <button id="remove_olive" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_bellpepper" style="margin: 10px;"> + </button>
+        <p> paprika </p>
+        <button id="remove_bellpepper" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_parmesan" style="margin: 10px;"> + </button>
+        <p> parmesan </p>
+        <button id="remove_parmesan" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_pecorino" style="margin: 10px;"> + </button>
+        <p> pecorino </p>
+        <button id="remove_pecorino" style="margin: 10px;"> - </button>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_ham" style="margin: 10px;"> + </button>
+        <p> skinka </p>
+        <button id="remove_ham" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_mushroom" style="margin: 10px;"> + </button>
+        <p> svamp </p>
+        <button id="remove_mushroom" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_zucchini" style="margin: 10px;"> + </button>
+        <p> zucchini </p>
+        <button id="remove_zucchini" style="margin: 10px;"> - </button>
+    </div>
 
     <script>
 
@@ -51,20 +132,68 @@
         function random_int(max){ return Math.floor( Math.random() * (max+1) ) }
 
         toppings_q0 = {
+            aubergine: [0, "bild/aubergine.png"],
+            basil: [0, "bild/basilika.png"],
+            chili: [0, "bild/chili.png"],
+            gorgonzola:[0, "bild/gorgonzola.png"],
             sausage: [0, "bild/korv.png"],
-            ham: [0, "bild/skinka.jpeg"]
+            artichoke: [0, "bild/kronärtskocka.png"],
+            mozzarella: [0, "bild/mozzarella.png"],
+            olive: [0, "bild/oliv.png"],
+            bellpepper: [0, "bild/paprika.png"],
+            parmesan: [0, "bild/parmesan.png"],
+            pecorino: [0, "bild/pecorino.png"],
+            ham: [0, "bild/skinka.jpeg"],
+            mushroom: [0, "bild/svamp.png"],
+            zucchini: [0, "bild/zucchini.png"],
         }
         toppings_q1 = {
+            aubergine: [0, "bild/aubergine.png"],
+            basil: [0, "bild/basilika.png"],
+            chili: [0, "bild/chili.png"],
+            gorgonzola:[0, "bild/gorgonzola.png"],
             sausage: [0, "bild/korv.png"],
-            ham: [0, "bild/skinka.jpeg"]
+            artichoke: [0, "bild/kronärtskocka.png"],
+            mozzarella: [0, "bild/mozzarella.png"],
+            olive: [0, "bild/oliv.png"],
+            bellpepper: [0, "bild/paprika.png"],
+            parmesan: [0, "bild/parmesan.png"],
+            pecorino: [0, "bild/pecorino.png"],
+            ham: [0, "bild/skinka.jpeg"],
+            mushroom: [0, "bild/svamp.png"],
+            zucchini: [0, "bild/zucchini.png"],
         }
         toppings_q2 = {
+            aubergine: [0, "bild/aubergine.png"],
+            basil: [0, "bild/basilika.png"],
+            chili: [0, "bild/chili.png"],
+            gorgonzola:[0, "bild/gorgonzola.png"],
             sausage: [0, "bild/korv.png"],
-            ham: [0, "bild/skinka.jpeg"]
+            artichoke: [0, "bild/kronärtskocka.png"],
+            mozzarella: [0, "bild/mozzarella.png"],
+            olive: [0, "bild/oliv.png"],
+            bellpepper: [0, "bild/paprika.png"],
+            parmesan: [0, "bild/parmesan.png"],
+            pecorino: [0, "bild/pecorino.png"],
+            ham: [0, "bild/skinka.jpeg"],
+            mushroom: [0, "bild/svamp.png"],
+            zucchini: [0, "bild/zucchini.png"],
         }
         toppings_q3 = {
+            aubergine: [0, "bild/aubergine.png"],
+            basil: [0, "bild/basilika.png"],
+            chili: [0, "bild/chili.png"],
+            gorgonzola:[0, "bild/gorgonzola.png"],
             sausage: [0, "bild/korv.png"],
-            ham: [0, "bild/skinka.jpeg"]
+            artichoke: [0, "bild/kronärtskocka.png"],
+            mozzarella: [0, "bild/mozzarella.png"],
+            olive: [0, "bild/oliv.png"],
+            bellpepper: [0, "bild/paprika.png"],
+            parmesan: [0, "bild/parmesan.png"],
+            pecorino: [0, "bild/pecorino.png"],
+            ham: [0, "bild/skinka.jpeg"],
+            mushroom: [0, "bild/svamp.png"],
+            zucchini: [0, "bild/zucchini.png"],
         }
         
         toppings = [toppings_q0, toppings_q1, toppings_q2, toppings_q3]
@@ -149,12 +278,12 @@
             if (ammount < 3 && !quarters[corner].classList.contains("blur_both") ) {
                 
                 
-                ammount += 1
                 
                 for (let i = 0; i < 3; i++) {
                     quarters[corner].appendChild(create_topping(source, corner))
                 }
-
+                
+                ammount += 1
                 
             }
             console.log(ammount)
@@ -194,31 +323,45 @@
         // for (let i = 0; i < toppings.sausage[0]; i++) {
             
         //     // add_topping(toppings.ham[1], 0)
+
+        function topping_manager(topping_type){
         
-        document.getElementById("add_sausage").onclick = () => {
+
+        document.getElementById(`add_${topping_type}`).onclick = () => {
+            toppings[0][topping_type][0] = add_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
+            toppings[1][topping_type][0] = add_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
+            toppings[2][topping_type][0] = add_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
+            toppings[3][topping_type][0] = add_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
             
-            toppings[0].sausage[0] = add_topping(toppings[0].sausage[1], 0, toppings[0].sausage[0])
-            toppings[1].sausage[0] = add_topping(toppings[1].sausage[1], 1, toppings[1].sausage[0])
-            toppings[2].sausage[0] = add_topping(toppings[2].sausage[1], 2, toppings[2].sausage[0])
-            toppings[3].sausage[0] = add_topping(toppings[3].sausage[1], 3, toppings[3].sausage[0])
         }
         
         
-        document.getElementById("remove_sausage").onclick = () => {
+        document.getElementById(`remove_${topping_type}`).onclick = () => {
             
-            toppings[0].sausage[0] = remove_topping(toppings[0].sausage[1], 0, toppings[0].sausage[0])
-            
-            // toppings[0].sausage[0] = ammount
+            toppings[0][topping_type][0] = remove_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
+            toppings[1][topping_type][0] = remove_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
+            toppings[2][topping_type][0] = remove_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
+            toppings[3][topping_type][0] = remove_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
 
-            toppings[1].sausage[0] = remove_topping(toppings[1].sausage[1], 1, toppings[1].sausage[0])
-            // toppings[1].sausage[0] = ammount
 
-            toppings[2].sausage[0] = remove_topping(toppings[2].sausage[1], 2, toppings[2].sausage[0])
-            // toppings[2].sausage[0] = ammount
-
-            toppings[3].sausage[0] = remove_topping(toppings[3].sausage[1], 3, toppings[3].sausage[0])
-            // toppings[3].sausage[0] = ammount
         }
+
+        }
+
+        topping_manager("aubergine")
+        topping_manager("basil")
+        topping_manager("chili")
+        topping_manager("gorgonzola")
+        topping_manager("sausage")
+        topping_manager("artichoke")
+        topping_manager("mozzarella")
+        topping_manager("olive")
+        topping_manager("bellpepper")
+        topping_manager("parmesan")
+        topping_manager("pecorino")
+        topping_manager("ham")
+        topping_manager("mushroom")
+        topping_manager("zucchini")
 
         quarters.forEach(quarter => {
             quarter.addEventListener('click', () => {select(quarter)} )

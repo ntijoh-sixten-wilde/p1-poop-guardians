@@ -23,9 +23,7 @@
     <div id="pizza_base" style="background-image: url(bild/pizza_grund.png); width: 400px; height: 400px; display: grid; grid-template-columns: repeat(2, 1fr);">
         
         <div id="north_west" class="quarters">
-            <!-- <img style="width: 66px; position: absolute; right: 0px; bottom: 0px; background-color: aqua; object-fit:cover; aspect-ratio: 1/1;" src="bild/korv.png" alt="">
-            <img style="width: 100px; position: absolute; right: 50px; bottom: 0px;" src="bild/korv.png" alt="">
-            <img id="test_item" style="position: absolute; right: 0px; bottom: 50px;" src="bild/korv.png" alt=""> -->
+            
         </div>
 
         <div id="north_east" class="quarters">
@@ -73,7 +71,7 @@
 
     <div style="display: flex; align-items: center;">
         <button id="add_artichoke" style="margin: 10px;"> + </button>
-        <p> kronärtskocka </p>
+        <p> kronartskocka </p>
         <button id="remove_artichoke" style="margin: 10px;"> - </button>
     </div>
 
@@ -125,6 +123,8 @@
         <button id="remove_zucchini" style="margin: 10px;"> - </button>
     </div>
 
+    <button id="done">klar</button>
+
     <script>
 
 
@@ -137,7 +137,7 @@
             chili: [0, "bild/chili.png"],
             gorgonzola:[0, "bild/gorgonzola.png"],
             sausage: [0, "bild/korv.png"],
-            artichoke: [0, "bild/kronärtskocka.png"],
+            artichoke: [0, "bild/kronartskocka.png"],
             mozzarella: [0, "bild/mozzarella.png"],
             olive: [0, "bild/oliv.png"],
             bellpepper: [0, "bild/paprika.png"],
@@ -153,7 +153,7 @@
             chili: [0, "bild/chili.png"],
             gorgonzola:[0, "bild/gorgonzola.png"],
             sausage: [0, "bild/korv.png"],
-            artichoke: [0, "bild/kronärtskocka.png"],
+            artichoke: [0, "bild/kronartskocka.png"],
             mozzarella: [0, "bild/mozzarella.png"],
             olive: [0, "bild/oliv.png"],
             bellpepper: [0, "bild/paprika.png"],
@@ -169,7 +169,7 @@
             chili: [0, "bild/chili.png"],
             gorgonzola:[0, "bild/gorgonzola.png"],
             sausage: [0, "bild/korv.png"],
-            artichoke: [0, "bild/kronärtskocka.png"],
+            artichoke: [0, "bild/kronartskocka.png"],
             mozzarella: [0, "bild/mozzarella.png"],
             olive: [0, "bild/oliv.png"],
             bellpepper: [0, "bild/paprika.png"],
@@ -185,7 +185,7 @@
             chili: [0, "bild/chili.png"],
             gorgonzola:[0, "bild/gorgonzola.png"],
             sausage: [0, "bild/korv.png"],
-            artichoke: [0, "bild/kronärtskocka.png"],
+            artichoke: [0, "bild/kronartskocka.png"],
             mozzarella: [0, "bild/mozzarella.png"],
             olive: [0, "bild/oliv.png"],
             bellpepper: [0, "bild/paprika.png"],
@@ -320,7 +320,6 @@
             return(ammount)
         }
         
-        // for (let i = 0; i < toppings.sausage[0]; i++) {
             
         //     // add_topping(toppings.ham[1], 0)
 
@@ -379,7 +378,18 @@
         }
         
         
+        done_button = document.getElementById("done")
 
+        done.onclick = () => {toppings.forEach(topping => {
+            console.log("\n quarter \n")
+
+            Object.values(topping).forEach(topp => {
+                if (topp[0] > 0){
+                    console.log(topp)
+                }
+            });
+            
+        });}
     </script>
 
 </body>

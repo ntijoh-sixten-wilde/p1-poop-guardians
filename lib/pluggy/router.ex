@@ -2,7 +2,9 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
+
   alias Pluggy.HomeController
+  alias Pluggy.FruitController
   alias Pluggy.PizzaController
   alias Pluggy.UserController
 
@@ -21,7 +23,6 @@ defmodule Pluggy.Router do
   plug(Plug.Parsers, parsers: [:urlencoded, :multipart])
   plug(:match)
   plug(:dispatch)
-
 
   get("/", do: HomeController.index(conn))
   get("/pizzas", do: PizzaController.index(conn))

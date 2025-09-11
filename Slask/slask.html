@@ -41,8 +41,8 @@
         </div>
     </div>
 
-    <button id="add" style="margin-top: 10px;"> lägg till korv </button>
-    <button id="remove" style="margin-top: 10px;"> ta bort korv </button>
+    <button id="add_sausage" style="margin-top: 10px;"> lägg till korv </button>
+    <button id="remove_sausage" style="margin-top: 10px;"> ta bort korv </button>
 
     <script>
 
@@ -66,35 +66,35 @@
             sausage: [0, "bild/korv.png"],
             ham: [0, "bild/skinka.jpeg"]
         }
-
+        
         toppings = [toppings_q0, toppings_q1, toppings_q2, toppings_q3]
-
+        
         quarters = Array.from( document.getElementsByClassName("quarters") )
-
+        
         function circle_math(crust = 10000){
-                ratio = 123
-
-                x = random_int(ratio) - random_int(ratio * 0.1)
-                y = random_int(ratio) - random_int(ratio * 0.1)
-                xy = x**2 + y**2
-
-                console.log(xy)
-
-                if (xy <= crust){
-                    return [x,y]
-                }
-
-                if (xy > crust){
-                    return circle_math()
-                }
+            ratio = 123
+            
+            x = random_int(ratio) - random_int(ratio * 0.1)
+            y = random_int(ratio) - random_int(ratio * 0.1)
+            xy = x**2 + y**2
+            
+            console.log(xy)
+            
+            if (xy <= crust){
+                return [x,y]
+            }
+            
+            if (xy > crust){
+                return circle_math()
+            }
         }
-
-
+        
+        
         function create_topping(source, corner){
-
+            
             topping_img = document.createElement('img')
             topping_img.src = source
-
+            
             
             // topping_class = document.getElementsByClassName("topping_class")
             
@@ -106,41 +106,48 @@
                 
                 
                 if (corner == 0){
-                topping_img.classList.add("topping_class_0")
-                xy_list = circle_math(15*10**3)
-                topping_img.style.right = xy_list[0]  + "px"
-                topping_img.style.bottom = xy_list[1]  + "px"
+                    topping_img.classList.add("topping_class_0")
+                    xy_list = circle_math(15*10**3)
+                    topping_img.style.right = xy_list[0]  + "px"
+                    topping_img.style.bottom = xy_list[1]  + "px"
+                }
+                
+                if (corner == 1){
+                    topping_img.classList.add("topping_class_1")
+                    xy_list = circle_math(15*10**3)
+                    topping_img.style.left = xy_list[0]  + "px"
+                    topping_img.style.bottom = xy_list[1]  + "px"
+                }
+                
+                if (corner == 2){
+                    topping_img.classList.add("topping_class_2")
+                    xy_list = circle_math(10*10**3)
+                    topping_img.style.right = xy_list[0]  + "px"
+                    topping_img.style.top = xy_list[1]  + "px"
+                }
+                
+                if (corner == 3){
+                    topping_img.classList.add("topping_class_3")
+                    xy_list = circle_math(10*10**3)
+                    topping_img.style.left = xy_list[0]  + "px"
+                    topping_img.style.top = xy_list[1]  + "px"
+                }
+                
+                
+                return topping_img
+                
             }
             
-            if (corner == 1){
-                topping_img.classList.add("topping_class_1")
-                xy_list = circle_math(15*10**3)
-                topping_img.style.left = xy_list[0]  + "px"
-                topping_img.style.bottom = xy_list[1]  + "px"
-            }
-            
-            if (corner == 2){
-                topping_img.classList.add("topping_class_2")
-                xy_list = circle_math(10*10**3)
-                topping_img.style.right = xy_list[0]  + "px"
-                topping_img.style.top = xy_list[1]  + "px"
-            }
-            
-            if (corner == 3){
-                topping_img.classList.add("topping_class_3")
-                xy_list = circle_math(10*10**3)
-                topping_img.style.left = xy_list[0]  + "px"
-                topping_img.style.top = xy_list[1]  + "px"
-            }
+            topping_class_0 = document.getElementsByClassName("topping_class_0")
+            topping_class_1 = document.getElementsByClassName("topping_class_1")
+            topping_class_2 = document.getElementsByClassName("topping_class_2")
+            topping_class_3 = document.getElementsByClassName("topping_class_3")
+    
+            topping_class = [topping_class_0, topping_class_1, topping_class_2, topping_class_3]
 
+            function add_topping(source, corner, ammount){
             
-            return topping_img
-            
-        }
-
-        function add_topping(source, corner, ){
-            
-            if (toppings[corner].sausage[0] < 3 && !quarters[corner].classList.contains("blur_both") ) {
+            if (ammount < 3 && !quarters[corner].classList.contains("blur_both") ) {
                 
                 
                 toppings[corner].sausage[0] += 1
@@ -149,50 +156,66 @@
                     quarters[corner].appendChild(create_topping(source, corner))
                 }
                 
-                console.log("sausage ", toppings[corner].sausage[0])
+                // console.log("sausage ", toppings[corner].sausage[0])
             }
         }
         
-        function remove_topping(corner){
+        function remove_topping(source, corner, ammount){
             
+            
+            
+            if (ammount > 0 && !quarters[corner].classList.contains("blur_both") ){
+
+                
+                removed = 0
+                i = 0
+                
+                while (removed < 3){
+                    
+                    if (topping_class[corner][i].src.includes(source)){
+                        topping_class[corner][i].remove()
+                        removed += 1
+
+                    } else{ i += 1 }
+                    
+                };
+                ammount -= 1
+
                 
                 
-                if (toppings[corner].sausage[0] > 0 && !quarters[corner].classList.contains("blur_both") ){
-                    
-                    for (let i = 0; i < 3; i++) {
-                        topping_class[corner][0].remove()
-                    }
-                    toppings[corner].sausage[0] -= 1
-   
-                    
                 
             }
+            return(ammount)
         }
+        
         // for (let i = 0; i < toppings.sausage[0]; i++) {
             
         //     // add_topping(toppings.ham[1], 0)
-
-        document.getElementById("add").onclick = () => {
+        
+        document.getElementById("add_sausage").onclick = () => {
             
-            add_topping(toppings[0].sausage[1], 0)
-            add_topping(toppings[1].sausage[1], 1)
-            add_topping(toppings[2].sausage[1], 2)
-            add_topping(toppings[3].sausage[1], 3)
+            add_topping(toppings[0].sausage[1], 0, toppings[0].sausage[0])
+            add_topping(toppings[1].sausage[1], 1, toppings[1].sausage[0])
+            add_topping(toppings[2].sausage[1], 2, toppings[2].sausage[0])
+            add_topping(toppings[3].sausage[1], 3, toppings[3].sausage[0])
         }
         
-        topping_class_0 = document.getElementsByClassName("topping_class_0")
-        topping_class_1 = document.getElementsByClassName("topping_class_1")
-        topping_class_2 = document.getElementsByClassName("topping_class_2")
-        topping_class_3 = document.getElementsByClassName("topping_class_3")
-
-        topping_class = [topping_class_0, topping_class_1, topping_class_2, topping_class_3]
         
-        document.getElementById("remove").onclick = () => {
+        document.getElementById("remove_sausage").onclick = () => {
+            
+            toppings[0].sausage[0] = remove_topping(toppings[0].sausage[1], 0, toppings[0].sausage[0])
+            // console.log("sausage ", toppings[0].sausage[0])
+            
+            // toppings[0].sausage[0] = ammount
 
-            remove_topping(0)
-            remove_topping(1)
-            remove_topping(2)
-            remove_topping(3)
+            toppings[1].sausage[0] = remove_topping(toppings[1].sausage[1], 1, toppings[1].sausage[0])
+            // toppings[1].sausage[0] = ammount
+
+            toppings[2].sausage[0] = remove_topping(toppings[2].sausage[1], 2, toppings[2].sausage[0])
+            // toppings[2].sausage[0] = ammount
+
+            toppings[3].sausage[0] = remove_topping(toppings[3].sausage[1], 3, toppings[3].sausage[0])
+            // toppings[3].sausage[0] = ammount
         }
 
         quarters.forEach(quarter => {

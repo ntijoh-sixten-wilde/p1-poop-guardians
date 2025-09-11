@@ -14,3 +14,11 @@
 	<button type="submit">Log In</button>
 </form>
 <% end %>
+
+<%= for pizza <- pizzas do %>
+	<li>
+		<a href="/fruits/<%= pizza.id %>">
+			<%= pizza.pizza_name %> - <%= pizza.price %>
+		</a>
+	</li>
+<% end %>

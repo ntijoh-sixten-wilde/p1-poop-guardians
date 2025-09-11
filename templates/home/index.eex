@@ -17,7 +17,7 @@
 
                     <div class="button-container">
                         <button class="customize-button" onclick="window.location.href='/edit'">Anpassa</button>
-                        <button class = "purchase-button">Köp</button>
+
                     </div>
                 </div>
             </div>

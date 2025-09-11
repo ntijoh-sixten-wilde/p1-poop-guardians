@@ -23,7 +23,14 @@ defmodule Pluggy.Router do
   plug(:match)
   plug(:dispatch)
 
+<<<<<<< HEAD
+
   get("/", do: HomeController.index(conn))
+
+
+=======
+  get("/", do: HomeController.index(conn))
+>>>>>>> cb27eec329f74bcdeee81daf7cc427ebba7d05cc
   get("/pizzas", do: PizzaController.index(conn))
   get("/pizzas/new", do: PizzaController.new(conn))
   get("/pizzas/:id", do: PizzaController.show(conn, id))

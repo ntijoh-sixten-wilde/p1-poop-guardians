@@ -139,19 +139,35 @@
         }
 
         function add_topping(source, corner, ){
-
-            if (toppings[corner].sausage[0] < 3){
-
+            
+            if (toppings[corner].sausage[0] < 3 && !quarters[corner].classList.contains("blur_both") ) {
+                
+                
                 toppings[corner].sausage[0] += 1
-
+                
                 for (let i = 0; i < 3; i++) {
                     quarters[corner].appendChild(create_topping(source, corner))
                 }
-
+                
                 console.log("sausage ", toppings[corner].sausage[0])
             }
         }
-
+        
+        function remove_topping(corner){
+            
+                
+                
+                if (toppings[corner].sausage[0] > 0 && !quarters[corner].classList.contains("blur_both") ){
+                    
+                    for (let i = 0; i < 3; i++) {
+                        topping_class[corner][0].remove()
+                    }
+                    toppings[corner].sausage[0] -= 1
+   
+                    
+                
+            }
+        }
         // for (let i = 0; i < toppings.sausage[0]; i++) {
             
         //     // add_topping(toppings.ham[1], 0)
@@ -168,25 +184,22 @@
         topping_class_1 = document.getElementsByClassName("topping_class_1")
         topping_class_2 = document.getElementsByClassName("topping_class_2")
         topping_class_3 = document.getElementsByClassName("topping_class_3")
+
+        topping_class = [topping_class_0, topping_class_1, topping_class_2, topping_class_3]
         
         document.getElementById("remove").onclick = () => {
 
-            if (toppings[0].sausage[0] > 0){
-
-            
-            for (let i = 0; i < 3; i++) {
-                topping_class_0[0].remove()
-                topping_class_1[0].remove()
-                topping_class_2[0].remove()
-                topping_class_3[0].remove()
-            }
-            toppings[0].sausage[0] -= 1
-            toppings[1].sausage[0] -= 1
-            toppings[2].sausage[0] -= 1
-            toppings[3].sausage[0] -= 1
-
+            remove_topping(0)
+            remove_topping(1)
+            remove_topping(2)
+            remove_topping(3)
         }
-        }
+
+        quarters.forEach(quarter => {
+            console.log(quarter)
+            quarter.addEventListener('click', () => {select(quarter)} )
+        });
+
         function select(quarter){
             console.log(quarter.classList)
     
@@ -200,7 +213,6 @@
         }
         
         
-
 
     </script>
 

@@ -14,26 +14,3 @@
 	<button type="submit">Log In</button>
 </form>
 <% end %>
-
-
-<<<<<<< HEAD:templates/fruits/index.eex
-
-=======
-<ul>
-    <%= for pizza <- pizzas do %>
-        <li>
-            <a href="/pizzas/<%= pizza.id %>">
-				<%= pizza.pizza_name %> - <%= pizza.price %> kr
-			</a>
-        </li>
-    <% end %>
-</ul>
-
-
-
-
-
-
-
-<a href="/pizzas/new">Add new pizzas</a>
->>>>>>> dbab263a9943dc1681259c39d6e569d5f7634920:templates/pizzas/index.eex

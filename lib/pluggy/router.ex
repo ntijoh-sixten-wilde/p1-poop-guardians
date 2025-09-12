@@ -1,4 +1,6 @@
 defmodule Pluggy.Router do
+
+  import Pluggy.Template
   use Plug.Router
   use Plug.Debugger
 
@@ -20,6 +22,14 @@ defmodule Pluggy.Router do
   plug(Plug.Parsers, parsers: [:urlencoded, :multipart])
   plug(:match)
   plug(:dispatch)
+
+  get("/edit", do: send_resp(conn, 200, render("Slask/slask")))
+
+  get "/home" do
+  pizza = conn.params["pizza"]
+  send_resp(conn, 200, render("home/index", assigns: [pizza: pizza]))
+  end
+
 
   get("/fruits", do: FruitController.index(conn))
   get("/fruits/new", do: FruitController.new(conn))

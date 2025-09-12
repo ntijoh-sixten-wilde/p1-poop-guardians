@@ -1,3 +1,5 @@
+<h1> <%= @pizza %> </h1>
+
     <header><img id="banner" src="images/Grafiskt material/tonys-pizza-logo.svg" alt="">
     <a id="basket-link" href="basket"><img src="images/Grafiskt material/tonys-pizza-basket.svg" id="basket-img" alt=""></a>
     </header>
@@ -36,7 +38,7 @@
 
 
                     <div class="button-container">
-                        <button class="customize-button" onclick="window.location.href='/edit'">Anpassa</button>
+                        <button class="customize-button" onclick="window.location.href='/edit?pizza=1'">Anpassa</button>
                         <button class = "purchase-button">Köp</button>
                     </div>
                 </div>

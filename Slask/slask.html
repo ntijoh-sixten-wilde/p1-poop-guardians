@@ -135,7 +135,7 @@
         
         pizza_base_plate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-        pizza_test = [2, 2, 0, 0, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0]
+        pizza_test = [3, 2, 1, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0]
         
         pizza = pizza_test
         
@@ -297,7 +297,6 @@
                 ammount += 1
                 
             }
-            console.log(ammount)
 
             return(ammount)
         }
@@ -327,7 +326,6 @@
                 
                 
             }
-            console.log(ammount)
             return(ammount)
         }
         
@@ -449,17 +447,46 @@
         done_button.onclick = () => {
             i = 0, 
 
+
+            swedish_full_recipe_list = []
             toppings.forEach(topping => {
             i += 1
-            console.log(`\n quarter ${i}\n`)
+
+            swedish_quarter_recipe = `\n\nkvart ${i}\n\n`
+            // swedish_quarter_recipe = ``
 
             Object.values(topping).forEach(topp => {
-                if (topp[0] > 0){
-                    console.log(topp)
+                // if (topp[0] > 0){
+
+                swedish_name = topp[1].split("/")[1].split(".")[0]
+                
+                switch(topp[0]){
+                    case 0: swedish_ammount = ""; swedish_name = ""; break
+                    // case 0: swedish_ammount = " (ingen) \n"; break
+
+                    case 1: swedish_ammount = " (lite) \n"; break
+                    case 2: swedish_ammount = "\n"; break
+                    case 3: swedish_ammount = " (mycket) \n"; break
                 }
+
+
+                    swedish_quarter_recipe += swedish_name + swedish_ammount
+
             });
+
+            // console.log(swedish_quarter_recipe)
+            swedish_full_recipe_list.push(swedish_quarter_recipe)
             
-        });}
+        });
+
+        swedish_full_recipe = ""
+        
+        swedish_full_recipe_list.forEach(quarter => {
+            swedish_full_recipe += quarter
+        });
+        
+        console.log(swedish_full_recipe)
+    }
 
         clear_button.onclick = () => {
             clear_all()

@@ -1,5 +1,7 @@
 defmodule Pluggy.Pizza do
-  defstruct(id: nil, name: "", price: "")
+  defstruct(id: nil, order_id: nil, completion: nil, pizza_name: nil, price: nil, glutenfree: nil,
+  size: nil, mozzarella: nil, parmesan: nil, pecorino: nil, gorgonzola: nil, ham: nil, basil: nil,
+  mushroom: nil, artichoke: nil, olives: nil, pepper: nil, salami: nil, aubergine: nil, zucchini: nil, chili: nil, tomato: nil)
 
   alias Pluggy.Pizza
 
@@ -38,11 +40,21 @@ defmodule Pluggy.Pizza do
     Postgrex.query!(DB, "DELETE FROM pizzas WHERE id = $1", [String.to_integer(id)])
   end
 
-  def to_struct([[id, name, price]]) do
-    %Pizza{id: id, name: name, price: price}
+  def to_struct([[id, order_id, completion, pizza_name, price, glutenfree,
+      size, mozzarella, parmesan, pecorino, gorgonzola, ham, basil,
+      mushroom, artichoke, olives, pepper, salami, aubergine, zucchini, chili, tomato
+     ]]) do
+    %Pizza{id: id, order_id: order_id, completion: completion, pizza_name: pizza_name, price: price, glutenfree: glutenfree,
+      size: size, mozzarella: mozzarella, parmesan: parmesan, pecorino: pecorino, gorgonzola: gorgonzola, ham: ham, basil: basil,
+      mushroom: mushroom, artichoke: artichoke, olives: olives, pepper: pepper, salami: salami, aubergine: aubergine, zucchini: zucchini, chili: chili, tomato: tomato}
   end
 
   def to_struct_list(rows) do
-    for [id, name, price] <- rows, do: %Pizza{id: id, name: name, price: price}
+    for [id, order_id, completion, pizza_name, price, glutenfree,
+      size, mozzarella, parmesan, pecorino, gorgonzola, ham, basil,
+      mushroom, artichoke, olives, pepper, salami, aubergine, zucchini, chili, tomato
+     ] <- rows, do: %Pizza{id: id, order_id: order_id, completion: completion, pizza_name: pizza_name, price: price, glutenfree: glutenfree,
+      size: size, mozzarella: mozzarella, parmesan: parmesan, pecorino: pecorino, gorgonzola: gorgonzola, ham: ham, basil: basil,
+      mushroom: mushroom, artichoke: artichoke, olives: olives, pepper: pepper, salami: salami, aubergine: aubergine, zucchini: zucchini, chili: chili, tomato: tomato}
   end
 end

@@ -1,4 +1,4 @@
-<h1>pizzas.index (/pizzas)</h1>
+<h1>Fruits.index (/fruits)</h1>
 
 <%= if user do %>
 	<form action="/users/logout" method="post">
@@ -15,6 +15,22 @@
 </form>
 <% end %>
 
+<<<<<<< HEAD:templates/fruits/index.eex
+
+
+<ul>
+  <%= for fruit <- fruits do %>
+    <li>
+    	<a href="/fruits/<%= fruit.id %>">
+			<%= fruit.name %> - <%= fruit.tastiness %>
+		</a>
+	</li>
+  <% end %>
+</ul>
+<a href="/fruits/new">Add new fruit</a>
+
+
+=======
 <%= for pizza <- pizzas do %>
 	<li>
 		<a href="/fruits/<%= pizza.id %>">
@@ -22,3 +38,4 @@
 		</a>
 	</li>
 <% end %>
+>>>>>>> f698b457d3ec3d4e53d136cccbf7735cdcba5471:templates/pizzas/index.eex

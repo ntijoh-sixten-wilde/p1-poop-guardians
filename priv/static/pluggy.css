@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+body {
+	background-color: peachpuff;
+=======
 *{
     margin: 0;
     padding: 0;
@@ -94,4 +98,5 @@ header{
     height: 2em;
     box-shadow: none;
     cursor: pointer;
+>>>>>>> f698b457d3ec3d4e53d136cccbf7735cdcba5471
 }

@@ -123,85 +123,90 @@
         <button id="remove_zucchini" style="margin: 10px;"> - </button>
     </div>
 
-    <button id="done">klar</button>
+    <button id="reset_button">återställ</button>
+    <button id="clear_button">rensa</button>
+    <button id="done_button">klar</button>
 
     <script>
 
 
         // function pixel_increase(pixels, increase){return parseInt(pixels) + increase + "px"}
         function random_int(max){ return Math.floor( Math.random() * (max+1) ) }
+        
+        pizza_base_plate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
+        pizza_test = [2, 2, 0, 0, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0]
+        
+        pizza = pizza_test
         
         toppings_q0 = {
-            aubergine: [0, "bild/aubergine.png"],
-            basil: [0, "bild/basilika.png"],
-            chili: [0, "bild/chili.png"],
-            gorgonzola:[0, "bild/gorgonzola.png"],
-            sausage: [0, "bild/korv.png"],
-            artichoke: [0, "bild/kronartskocka.png"],
-            mozzarella: [0, "bild/mozzarella.png"],
-            olive: [0, "bild/oliv.png"],
-            bellpepper: [0, "bild/paprika.png"],
-            parmesan: [0, "bild/parmesan.png"],
-            pecorino: [0, "bild/pecorino.png"],
-            ham: [0, "bild/skinka.jpeg"],
-            mushroom: [0, "bild/svamp.png"],
-            zucchini: [0, "bild/zucchini.png"],
+            aubergine: [pizza[0], "bild/aubergine.png"],
+            basil: [pizza[1], "bild/basilika.png"],
+            chili: [pizza[2], "bild/chili.png"],
+            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
+            sausage: [pizza[4], "bild/korv.png"],
+            artichoke: [pizza[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza[6], "bild/mozzarella.png"],
+            olive: [pizza[7], "bild/oliv.png"],
+            bellpepper: [pizza[8], "bild/paprika.png"],
+            parmesan: [pizza[9], "bild/parmesan.png"],
+            pecorino: [pizza[10], "bild/pecorino.png"],
+            ham: [pizza[11], "bild/skinka.jpeg"],
+            mushroom: [pizza[12], "bild/svamp.png"],
+            zucchini: [pizza[13], "bild/zucchini.png"],
         }
         toppings_q1 = {
-            aubergine: [0, "bild/aubergine.png"],
-            basil: [0, "bild/basilika.png"],
-            chili: [0, "bild/chili.png"],
-            gorgonzola:[0, "bild/gorgonzola.png"],
-            sausage: [0, "bild/korv.png"],
-            artichoke: [0, "bild/kronartskocka.png"],
-            mozzarella: [0, "bild/mozzarella.png"],
-            olive: [0, "bild/oliv.png"],
-            bellpepper: [0, "bild/paprika.png"],
-            parmesan: [0, "bild/parmesan.png"],
-            pecorino: [0, "bild/pecorino.png"],
-            ham: [0, "bild/skinka.jpeg"],
-            mushroom: [0, "bild/svamp.png"],
-            zucchini: [0, "bild/zucchini.png"],
+            aubergine: [pizza[0], "bild/aubergine.png"],
+            basil: [pizza[1], "bild/basilika.png"],
+            chili: [pizza[2], "bild/chili.png"],
+            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
+            sausage: [pizza[4], "bild/korv.png"],
+            artichoke: [pizza[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza[6], "bild/mozzarella.png"],
+            olive: [pizza[7], "bild/oliv.png"],
+            bellpepper: [pizza[8], "bild/paprika.png"],
+            parmesan: [pizza[9], "bild/parmesan.png"],
+            pecorino: [pizza[10], "bild/pecorino.png"],
+            ham: [pizza[11], "bild/skinka.jpeg"],
+            mushroom: [pizza[12], "bild/svamp.png"],
+            zucchini: [pizza[13], "bild/zucchini.png"],
         }
         toppings_q2 = {
-            aubergine: [0, "bild/aubergine.png"],
-            basil: [0, "bild/basilika.png"],
-            chili: [0, "bild/chili.png"],
-            gorgonzola:[0, "bild/gorgonzola.png"],
-            sausage: [0, "bild/korv.png"],
-            artichoke: [0, "bild/kronartskocka.png"],
-            mozzarella: [0, "bild/mozzarella.png"],
-            olive: [0, "bild/oliv.png"],
-            bellpepper: [0, "bild/paprika.png"],
-            parmesan: [0, "bild/parmesan.png"],
-            pecorino: [0, "bild/pecorino.png"],
-            ham: [0, "bild/skinka.jpeg"],
-            mushroom: [0, "bild/svamp.png"],
-            zucchini: [0, "bild/zucchini.png"],
+            aubergine: [pizza[0], "bild/aubergine.png"],
+            basil: [pizza[1], "bild/basilika.png"],
+            chili: [pizza[2], "bild/chili.png"],
+            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
+            sausage: [pizza[4], "bild/korv.png"],
+            artichoke: [pizza[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza[6], "bild/mozzarella.png"],
+            olive: [pizza[7], "bild/oliv.png"],
+            bellpepper: [pizza[8], "bild/paprika.png"],
+            parmesan: [pizza[9], "bild/parmesan.png"],
+            pecorino: [pizza[10], "bild/pecorino.png"],
+            ham: [pizza[11], "bild/skinka.jpeg"],
+            mushroom: [pizza[12], "bild/svamp.png"],
+            zucchini: [pizza[13], "bild/zucchini.png"],
         }
-        pizza_test = [2, 2, 0, 0, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0]
+
 
         toppings_q3 = {
-            aubergine: [pizza_test[0], "bild/aubergine.png"],
-            basil: [pizza_test[1], "bild/basilika.png"],
-            chili: [pizza_test[2], "bild/chili.png"],
-            gorgonzola:[pizza_test[3], "bild/gorgonzola.png"],
-            sausage: [pizza_test[4], "bild/korv.png"],
-            artichoke: [pizza_test[5], "bild/kronartskocka.png"],
-            mozzarella: [pizza_test[6], "bild/mozzarella.png"],
-            olive: [pizza_test[7], "bild/oliv.png"],
-            bellpepper: [pizza_test[8], "bild/paprika.png"],
-            parmesan: [pizza_test[9], "bild/parmesan.png"],
-            pecorino: [pizza_test[10], "bild/pecorino.png"],
-            ham: [pizza_test[11], "bild/skinka.jpeg"],
-            mushroom: [pizza_test[12], "bild/svamp.png"],
-            zucchini: [pizza_test[13], "bild/zucchini.png"],
+            aubergine: [pizza[0], "bild/aubergine.png"],
+            basil: [pizza[1], "bild/basilika.png"],
+            chili: [pizza[2], "bild/chili.png"],
+            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
+            sausage: [pizza[4], "bild/korv.png"],
+            artichoke: [pizza[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza[6], "bild/mozzarella.png"],
+            olive: [pizza[7], "bild/oliv.png"],
+            bellpepper: [pizza[8], "bild/paprika.png"],
+            parmesan: [pizza[9], "bild/parmesan.png"],
+            pecorino: [pizza[10], "bild/pecorino.png"],
+            ham: [pizza[11], "bild/skinka.jpeg"],
+            mushroom: [pizza[12], "bild/svamp.png"],
+            zucchini: [pizza[13], "bild/zucchini.png"],
         }
         
         toppings = [toppings_q0, toppings_q1, toppings_q2, toppings_q3]
-
-
 
         
         quarters = Array.from( document.getElementsByClassName("quarters") )
@@ -333,28 +338,14 @@
         
 
         document.getElementById(`add_${topping_type}`).onclick = () => {
-            toppings[0][topping_type][0] = add_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
-            toppings[1][topping_type][0] = add_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
-            toppings[2][topping_type][0] = add_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
-            toppings[3][topping_type][0] = add_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
-            
+            add_for_whole(topping_type)
         }
         
         
         document.getElementById(`remove_${topping_type}`).onclick = () => {
-            
-            toppings[0][topping_type][0] = remove_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
-            toppings[1][topping_type][0] = remove_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
-            toppings[2][topping_type][0] = remove_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
-            toppings[3][topping_type][0] = remove_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
-
-
+            remove_for_whole(topping_type)
         }
 
-        toppings[0][topping_type][0] = add_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
-        toppings[1][topping_type][0] = add_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
-        toppings[2][topping_type][0] = add_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
-        toppings[3][topping_type][0] = add_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
         }
 
         topping_manager("aubergine")
@@ -372,6 +363,66 @@
         topping_manager("mushroom")
         topping_manager("zucchini")
 
+        
+        function add_for_whole(topping_type){
+            toppings[0][topping_type][0] = add_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
+            toppings[1][topping_type][0] = add_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
+            toppings[2][topping_type][0] = add_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
+            toppings[3][topping_type][0] = add_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
+        }
+        
+        
+        function remove_for_whole(topping_type){
+            toppings[0][topping_type][0] = remove_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
+            toppings[1][topping_type][0] = remove_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
+            toppings[2][topping_type][0] = remove_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
+            toppings[3][topping_type][0] = remove_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
+        }
+
+        possible_toppings = Object.keys(toppings_q0)
+
+        function clear_all_data(){
+            possible_toppings.forEach(topping => {
+                toppings[0][topping][0] = 0
+                toppings[1][topping][0] = 0
+                toppings[2][topping][0] = 0
+                toppings[3][topping][0] = 0
+            })
+        }
+
+        function clear_all(){
+            clear_all_data()
+            clear_all_topping_img()
+        }
+
+        
+        function reload_toppings(){
+            
+            clear_all()
+            
+            i = 0
+            possible_toppings.forEach(topping => {
+                
+                for (let ammount = 0; ammount < pizza[i]; ammount++) {
+                    add_for_whole(topping)
+                    
+                }
+
+                i += 1
+                
+            });
+        }
+        
+        reload_toppings()
+        
+        function clear_all_topping_img(){
+            topping_class.forEach(topping_side => {
+                Array.from(topping_side).forEach(topping => {
+                    topping.remove()
+                });
+                
+            });
+        }
 
 
         quarters.forEach(quarter => {
@@ -390,12 +441,14 @@
         }
         
         
-        done_button = document.getElementById("done")
+        done_button = document.getElementById("done_button")
+        reset_button = document.getElementById("reset_button")
+        clear_button = document.getElementById("clear_button")
 
        
-        done.onclick = () => {
+        done_button.onclick = () => {
             i = 0, 
-            
+
             toppings.forEach(topping => {
             i += 1
             console.log(`\n quarter ${i}\n`)
@@ -407,6 +460,14 @@
             });
             
         });}
+
+        clear_button.onclick = () => {
+            clear_all()
+        }
+        
+        reset_button.onclick = () => {
+            reload_toppings()
+        }
     </script>
 
 </body>

@@ -20,7 +20,18 @@ defmodule Mix.Tasks.Seed do
 
     Postgrex.query!(
       DB,
+<<<<<<< HEAD
       "Create TABLE fruits (id SERIAL, name VARCHAR(255) NOT NULL, tastiness INTEGER NOT NULL)",
+=======
+      "Create TABLE pizzas (id SERIAL, tomato INTEGER NOT NULL, mozzarella INTEGER NOT NULL, parmesan INTEGER NOT NULL, pecorino INTEGER NOT NULL, gorgonzola INTEGER NOT NULL, ham INTEGER NOT NULL, basil INTEGER NOT NULL, mushroom INTEGER NOT NULL, artichoke INTEGER NOT NULL, olives INTEGER NOT NULL, pepper INTEGER NOT NULL, salami INTEGER NOT NULL, aubergine INTEGER NOT NULL, zucchini INTEGER NOT NULL, chili INTEGER NOT NULL)",
+      [],
+      pool: DBConnection.ConnectionPool
+    )
+
+    Postgrex.query!(
+      DB,
+      "Create TABLE orders (id SERIAL, username VARCHAR(255) NOT NULL, password_hash CHAR(72) NOT NULL)",
+>>>>>>> f698b457d3ec3d4e53d136cccbf7735cdcba5471
       [],
       pool: DBConnection.ConnectionPool
     )
@@ -36,8 +47,22 @@ defmodule Mix.Tasks.Seed do
   defp seed_data() do
     IO.puts("Seeding data")
 
+<<<<<<< HEAD
     Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Apple", 5],
       pool: DBConnection.ConnectionPool
+=======
+    Postgrex.query!(DB, "INSERT INTO pizzas (tomato, mozzarella, parmesan, pecorino, gorgonzola, ham, basil, mushroom, artichoke, olives, pepper, salami, aubergine, zucchini, chili) VALUES
+    (2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0),
+    (2, 2, 0, 0, 0, 2, 0, 2, 2, 0, 0, 0, 0, 0, 0),
+    (2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+    (2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+    (2, 2, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0),
+    (2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 0),
+    (2, 2, 0, 0, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0),
+    (2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 2);"
+
+
+>>>>>>> f698b457d3ec3d4e53d136cccbf7735cdcba5471
     )
 
     Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Pear", 4],
@@ -47,6 +72,10 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Banana", 7],
       pool: DBConnection.ConnectionPool
     )
+
+
+
+
 
     Postgrex.query!(
       DB,

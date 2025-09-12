@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .quarters{
+            border: white solid;
+            height: 200px;
+            width: 200px;
+            position: relative;
+        }
+
+        .blur_both{
+            backdrop-filter: blur(3px);
+            filter: blur(3px);            
+        }
+    </style>
+</head>
+<body>
+    <div id="pizza_base" style="background-image: url(bild/pizza_grund.png); width: 400px; height: 400px; display: grid; grid-template-columns: repeat(2, 1fr);">
+        
+        <div id="north_west" class="quarters">
+            
+        </div>
+
+        <div id="north_east" class="quarters">
+          
+        </div>
+
+         <div id="south_west" class="quarters">
+           
+        </div>
+
+        <div id="south_east" class="quarters">
+        
+        </div>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_aubergine" style="margin: 10px;"> + </button>
+        <p> aubergine </p>
+        <button id="remove_aubergine" style="margin: 10px;"> - </button>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_basil" style="margin: 10px;"> + </button>
+        <p> basilika </p>
+        <button id="remove_basil" style="margin: 10px;"> - </button>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_chili" style="margin: 10px;"> + </button>
+        <p> chili </p>
+        <button id="remove_chili" style="margin: 10px;"> - </button>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_gorgonzola" style="margin: 10px;"> + </button>
+        <p> gorgonzola </p>
+        <button id="remove_gorgonzola" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_sausage" style="margin: 10px;"> + </button>
+        <p> korv </p>
+        <button id="remove_sausage" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_artichoke" style="margin: 10px;"> + </button>
+        <p> kronartskocka </p>
+        <button id="remove_artichoke" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_mozzarella" style="margin: 10px;"> + </button>
+        <p> mozzarella </p>
+        <button id="remove_mozzarella" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_olive" style="margin: 10px;"> + </button>
+        <p> oliver </p>
+        <button id="remove_olive" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_bellpepper" style="margin: 10px;"> + </button>
+        <p> paprika </p>
+        <button id="remove_bellpepper" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_parmesan" style="margin: 10px;"> + </button>
+        <p> parmesan </p>
+        <button id="remove_parmesan" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_pecorino" style="margin: 10px;"> + </button>
+        <p> pecorino </p>
+        <button id="remove_pecorino" style="margin: 10px;"> - </button>
+    </div>
+    
+    <div style="display: flex; align-items: center;">
+        <button id="add_ham" style="margin: 10px;"> + </button>
+        <p> skinka </p>
+        <button id="remove_ham" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_mushroom" style="margin: 10px;"> + </button>
+        <p> svamp </p>
+        <button id="remove_mushroom" style="margin: 10px;"> - </button>
+    </div>
+
+    <div style="display: flex; align-items: center;">
+        <button id="add_zucchini" style="margin: 10px;"> + </button>
+        <p> zucchini </p>
+        <button id="remove_zucchini" style="margin: 10px;"> - </button>
+    </div>
+
+    <button id="reset_button">återställ</button>
+    <button id="clear_button">rensa</button>
+    <button id="done_button">klar</button>
+
+    <script>
+
+
+        // function pixel_increase(pixels, increase){return parseInt(pixels) + increase + "px"}
+        function random_int(max){ return Math.floor( Math.random() * (max+1) ) }
+        
+        pizza_base_plate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+        pizza_test = [3, 2, 1, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+        
+        pizza = pizza_test
+        
+        toppings_q0 = {
+            aubergine: [pizza[0], "bild/aubergine.png"],
+            basil: [pizza[1], "bild/basilika.png"],
+            chili: [pizza[2], "bild/chili.png"],
+            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
+            sausage: [pizza[4], "bild/korv.png"],
+            artichoke: [pizza[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza[6], "bild/mozzarella.png"],
+            olive: [pizza[7], "bild/oliv.png"],
+            bellpepper: [pizza[8], "bild/paprika.png"],
+            parmesan: [pizza[9], "bild/parmesan.png"],
+            pecorino: [pizza[10], "bild/pecorino.png"],
+            ham: [pizza[11], "bild/skinka.jpeg"],
+            mushroom: [pizza[12], "bild/svamp.png"],
+            zucchini: [pizza[13], "bild/zucchini.png"],
+        }
+        toppings_q1 = {
+            aubergine: [pizza[0], "bild/aubergine.png"],
+            basil: [pizza[1], "bild/basilika.png"],
+            chili: [pizza[2], "bild/chili.png"],
+            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
+            sausage: [pizza[4], "bild/korv.png"],
+            artichoke: [pizza[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza[6], "bild/mozzarella.png"],
+            olive: [pizza[7], "bild/oliv.png"],
+            bellpepper: [pizza[8], "bild/paprika.png"],
+            parmesan: [pizza[9], "bild/parmesan.png"],
+            pecorino: [pizza[10], "bild/pecorino.png"],
+            ham: [pizza[11], "bild/skinka.jpeg"],
+            mushroom: [pizza[12], "bild/svamp.png"],
+            zucchini: [pizza[13], "bild/zucchini.png"],
+        }
+        toppings_q2 = {
+            aubergine: [pizza[0], "bild/aubergine.png"],
+            basil: [pizza[1], "bild/basilika.png"],
+            chili: [pizza[2], "bild/chili.png"],
+            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
+            sausage: [pizza[4], "bild/korv.png"],
+            artichoke: [pizza[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza[6], "bild/mozzarella.png"],
+            olive: [pizza[7], "bild/oliv.png"],
+            bellpepper: [pizza[8], "bild/paprika.png"],
+            parmesan: [pizza[9], "bild/parmesan.png"],
+            pecorino: [pizza[10], "bild/pecorino.png"],
+            ham: [pizza[11], "bild/skinka.jpeg"],
+            mushroom: [pizza[12], "bild/svamp.png"],
+            zucchini: [pizza[13], "bild/zucchini.png"],
+        }
+
+
+        toppings_q3 = {
+            aubergine: [pizza[0], "bild/aubergine.png"],
+            basil: [pizza[1], "bild/basilika.png"],
+            chili: [pizza[2], "bild/chili.png"],
+            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
+            sausage: [pizza[4], "bild/korv.png"],
+            artichoke: [pizza[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza[6], "bild/mozzarella.png"],
+            olive: [pizza[7], "bild/oliv.png"],
+            bellpepper: [pizza[8], "bild/paprika.png"],
+            parmesan: [pizza[9], "bild/parmesan.png"],
+            pecorino: [pizza[10], "bild/pecorino.png"],
+            ham: [pizza[11], "bild/skinka.jpeg"],
+            mushroom: [pizza[12], "bild/svamp.png"],
+            zucchini: [pizza[13], "bild/zucchini.png"],
+        }
+        
+        toppings = [toppings_q0, toppings_q1, toppings_q2, toppings_q3]
+
+        
+        quarters = Array.from( document.getElementsByClassName("quarters") )
+        
+        function circle_math(crust = 10000){
+            ratio = 123
+            
+            x = random_int(ratio) - random_int(ratio * 0.1)
+            y = random_int(ratio) - random_int(ratio * 0.1)
+            xy = x**2 + y**2
+            
+            
+            
+            if (xy <= crust){
+                return [x,y]
+            }
+            
+            if (xy > crust){
+                return circle_math()
+            }
+        }
+        
+        
+        function create_topping(source, corner){
+            
+            topping_img = document.createElement('img')
+            topping_img.src = source
+            
+            
+            // topping_class = document.getElementsByClassName("topping_class")
+            
+            // Array.from(topping_class).forEach(individual_topping => {
+                // });
+                
+                topping_img.style = "position: absolute; object-fit:cover; aspect-ratio: 1/1; width: 33px; opacity: 80%"
+                
+                
+                if (corner == 0){
+                    topping_img.classList.add("topping_class_0")
+                    xy_list = circle_math(15*10**3)
+                    topping_img.style.right = xy_list[0]  + "px"
+                    topping_img.style.bottom = xy_list[1]  + "px"
+                }
+                
+                if (corner == 1){
+                    topping_img.classList.add("topping_class_1")
+                    xy_list = circle_math(15*10**3)
+                    topping_img.style.left = xy_list[0]  + "px"
+                    topping_img.style.bottom = xy_list[1]  + "px"
+                }
+                
+                if (corner == 2){
+                    topping_img.classList.add("topping_class_2")
+                    xy_list = circle_math(10*10**3)
+                    topping_img.style.right = xy_list[0]  + "px"
+                    topping_img.style.top = xy_list[1]  + "px"
+                }
+                
+                if (corner == 3){
+                    topping_img.classList.add("topping_class_3")
+                    xy_list = circle_math(10*10**3)
+                    topping_img.style.left = xy_list[0]  + "px"
+                    topping_img.style.top = xy_list[1]  + "px"
+                }
+                
+                
+                return topping_img
+                
+            }
+            
+            topping_class_0 = document.getElementsByClassName("topping_class_0")
+            topping_class_1 = document.getElementsByClassName("topping_class_1")
+            topping_class_2 = document.getElementsByClassName("topping_class_2")
+            topping_class_3 = document.getElementsByClassName("topping_class_3")
+    
+            topping_class = [topping_class_0, topping_class_1, topping_class_2, topping_class_3]
+
+            function add_topping(source, corner, ammount){
+            
+            if (ammount < 3 && !quarters[corner].classList.contains("blur_both") ) {
+                
+                
+                
+                for (let i = 0; i < 3; i++) {
+                    quarters[corner].appendChild(create_topping(source, corner))
+                }
+                
+                ammount += 1
+                
+            }
+
+            return(ammount)
+        }
+        
+        function remove_topping(source, corner, ammount){
+            
+            
+            
+            if (ammount > 0 && !quarters[corner].classList.contains("blur_both") ){
+
+                
+                removed = 0
+                i = 0
+                
+                while (removed < 3){
+                    
+                    if (topping_class[corner][i].src.includes(source)){
+                        topping_class[corner][i].remove()
+                        removed += 1
+
+                    } else{ i += 1 }
+                    
+                };
+                ammount -= 1
+
+                
+                
+                
+            }
+            return(ammount)
+        }
+        
+            
+        //     // add_topping(toppings.ham[1], 0)
+
+        function topping_manager(topping_type){
+        
+
+        document.getElementById(`add_${topping_type}`).onclick = () => {
+            add_for_whole(topping_type)
+        }
+        
+        
+        document.getElementById(`remove_${topping_type}`).onclick = () => {
+            remove_for_whole(topping_type)
+        }
+
+        }
+
+        topping_manager("aubergine")
+        topping_manager("basil")
+        topping_manager("chili")
+        topping_manager("gorgonzola")
+        topping_manager("sausage")
+        topping_manager("artichoke")
+        topping_manager("mozzarella")
+        topping_manager("olive")
+        topping_manager("bellpepper")
+        topping_manager("parmesan")
+        topping_manager("pecorino")
+        topping_manager("ham")
+        topping_manager("mushroom")
+        topping_manager("zucchini")
+
+        
+        function add_for_whole(topping_type){
+            toppings[0][topping_type][0] = add_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
+            toppings[1][topping_type][0] = add_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
+            toppings[2][topping_type][0] = add_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
+            toppings[3][topping_type][0] = add_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
+        }
+        
+        
+        function remove_for_whole(topping_type){
+            toppings[0][topping_type][0] = remove_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
+            toppings[1][topping_type][0] = remove_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
+            toppings[2][topping_type][0] = remove_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
+            toppings[3][topping_type][0] = remove_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
+        }
+
+        possible_toppings = Object.keys(toppings_q0)
+
+        function clear_all_data(){
+            possible_toppings.forEach(topping => {
+                
+                for (let i = 0; i < 4; i++) {
+                
+                    
+                    if (!quarters[i].classList.contains("blur_both")){
+                        
+                        toppings[i][topping][0] = 0
+    
+                        
+                    }
+                }
+            })
+        }
+
+        function clear_all(){
+            clear_all_data()
+            clear_all_topping_img()
+        }
+
+        
+        function reload_toppings(){
+            
+            clear_all()
+            
+            i = 0
+            possible_toppings.forEach(topping => {
+                
+                for (let ammount = 0; ammount < pizza[i]; ammount++) {
+                    add_for_whole(topping)
+                    
+                }
+
+                i += 1
+                
+            });
+        }
+        
+        reload_toppings()
+        
+        function clear_all_topping_img(){
+            i = 0
+            topping_class.forEach(topping_side => {
+                Array.from(topping_side).forEach(topping => {
+                    if (!quarters[i].classList.contains("blur_both")){
+
+                        topping.remove()
+                    }
+                });
+
+                i+=1
+                
+            });
+        }
+
+
+        quarters.forEach(quarter => {
+            quarter.addEventListener('click', () => {select(quarter)} )
+        });
+
+        function select(quarter){
+    
+            if (quarter.classList.contains("blur_both")){
+                quarter.classList.remove("blur_both")
+            }
+            else {
+                quarter.classList.add("blur_both")
+            }
+    
+        }
+        
+        
+        done_button = document.getElementById("done_button")
+        reset_button = document.getElementById("reset_button")
+        clear_button = document.getElementById("clear_button")
+
+       
+        done_button.onclick = () => {
+            i = 0, 
+
+
+            swedish_full_recipe_list = []
+            toppings.forEach(topping => {
+            i += 1
+
+            swedish_quarter_recipe = `\n\nkvart ${i}\n\n`
+            // swedish_quarter_recipe = ``
+
+            Object.values(topping).forEach(topp => {
+                // if (topp[0] > 0){
+
+                swedish_name = topp[1].split("/")[1].split(".")[0]
+                
+                switch(topp[0]){
+                    case 0: swedish_ammount = ""; swedish_name = ""; break
+                    // case 0: swedish_ammount = " (ingen) \n"; break
+
+                    case 1: swedish_ammount = " (lite) \n"; break
+                    case 2: swedish_ammount = "\n"; break
+                    case 3: swedish_ammount = " (mycket) \n"; break
+                }
+
+
+                    swedish_quarter_recipe += swedish_name + swedish_ammount
+
+            });
+
+            // console.log(swedish_quarter_recipe)
+            swedish_full_recipe_list.push(swedish_quarter_recipe)
+            
+            
+        });
+
+        swedish_full_recipe = ""
+        
+        swedish_full_recipe_list.forEach(quarter => {
+            swedish_full_recipe += quarter
+        });
+        
+        console.log(swedish_full_recipe)
+    }
+
+        clear_button.onclick = () => {
+            clear_all()
+        }
+        
+        reset_button.onclick = () => {
+            reload_toppings()
+        }
+    </script>
+
+</body>
+</html>

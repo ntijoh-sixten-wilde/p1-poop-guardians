@@ -1,4 +1,6 @@
 defmodule Pluggy.Router do
+
+  import Pluggy.Template
   use Plug.Router
   use Plug.Debugger
 
@@ -28,6 +30,18 @@ defmodule Pluggy.Router do
   # get("/fruits/new", do: FruitController.new(conn))
   # get("/fruits/:id", do: FruitController.show(conn, id))
   # get("/fruits/:id/edit", do: FruitController.edit(conn, id))
+  get("/edit", do: send_resp(conn, 200, render("Slask/slask")))
+
+  get "/home" do
+  pizza = conn.params["pizza"]
+  send_resp(conn, 200, render("home/index", assigns: [pizza: pizza]))
+  end
+
+
+  get("/fruits", do: FruitController.index(conn))
+  get("/fruits/new", do: FruitController.new(conn))
+  get("/fruits/:id", do: FruitController.show(conn, id))
+  get("/fruits/:id/edit", do: FruitController.edit(conn, id))
 
   # post("/fruits", do: FruitController.create(conn, conn.body_params))
 

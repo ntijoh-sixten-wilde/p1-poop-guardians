@@ -15,7 +15,6 @@
 </form>
 <% end %>
 
-<<<<<<< HEAD:templates/fruits/index.eex
 
 
 <ul>
@@ -30,12 +29,3 @@
 <a href="/fruits/new">Add new fruit</a>
 
 
-=======
-<%= for pizza <- pizzas do %>
-	<li>
-		<a href="/fruits/<%= pizza.id %>">
-			<%= pizza.pizza_name %> - <%= pizza.price %>
-		</a>
-	</li>
-<% end %>
->>>>>>> f698b457d3ec3d4e53d136cccbf7735cdcba5471:templates/pizzas/index.eex

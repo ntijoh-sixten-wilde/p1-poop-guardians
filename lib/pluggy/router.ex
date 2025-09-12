@@ -2,11 +2,8 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
-
-  alias Pluggy.HomeController
-  alias Pluggy.PizzaController
+  alias Pluggy.FruitController
   alias Pluggy.UserController
-  alias Pluggy.BasketController
 
   plug(Plug.Static, at: "/", from: :pluggy)
   plug(:put_secret_key_base)
@@ -28,16 +25,6 @@ defmodule Pluggy.Router do
   get("/fruits/new", do: FruitController.new(conn))
   get("/fruits/:id", do: FruitController.show(conn, id))
   get("/fruits/:id/edit", do: FruitController.edit(conn, id))
-
-  get("/", do: HomeController.index(conn))
-  get("/basket", do: BasketController.index(conn))
-
-
-  get("/", do: HomeController.index(conn))
-  get("/pizzas", do: PizzaController.index(conn))
-  get("/pizzas/new", do: PizzaController.new(conn))
-  get("/pizzas/:id", do: PizzaController.show(conn, id))
-  get("/pizzas/:id/edit", do: PizzaController.edit(conn, id))
 
   post("/fruits", do: FruitController.create(conn, conn.body_params))
 

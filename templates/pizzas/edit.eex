@@ -1,7 +1,0 @@
-<h1>Pizzas.edit (/pizzas/<%= fruit.id %>/edit)</h1>
-
-<form action="/pizzas/<%= fruit.id %>/edit" method="post">
-	<input type="text" name="name" value="<%= pizzas.name %>">
-	<input type="text" name="tastiness" value="<%= pizzas.tastiness %>" />
-	<button type=submit>Update</button>
-</form>

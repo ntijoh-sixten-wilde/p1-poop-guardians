@@ -131,6 +131,7 @@
         // function pixel_increase(pixels, increase){return parseInt(pixels) + increase + "px"}
         function random_int(max){ return Math.floor( Math.random() * (max+1) ) }
 
+        
         toppings_q0 = {
             aubergine: [0, "bild/aubergine.png"],
             basil: [0, "bild/basilika.png"],
@@ -179,24 +180,29 @@
             mushroom: [0, "bild/svamp.png"],
             zucchini: [0, "bild/zucchini.png"],
         }
+        pizza_test = [2, 2, 0, 0, 0, 2, 0, 2, 2, 2, 0, 0, 0, 0, 0]
+
         toppings_q3 = {
-            aubergine: [0, "bild/aubergine.png"],
-            basil: [0, "bild/basilika.png"],
-            chili: [0, "bild/chili.png"],
-            gorgonzola:[0, "bild/gorgonzola.png"],
-            sausage: [0, "bild/korv.png"],
-            artichoke: [0, "bild/kronartskocka.png"],
-            mozzarella: [0, "bild/mozzarella.png"],
-            olive: [0, "bild/oliv.png"],
-            bellpepper: [0, "bild/paprika.png"],
-            parmesan: [0, "bild/parmesan.png"],
-            pecorino: [0, "bild/pecorino.png"],
-            ham: [0, "bild/skinka.jpeg"],
-            mushroom: [0, "bild/svamp.png"],
-            zucchini: [0, "bild/zucchini.png"],
+            aubergine: [pizza_test[0], "bild/aubergine.png"],
+            basil: [pizza_test[1], "bild/basilika.png"],
+            chili: [pizza_test[2], "bild/chili.png"],
+            gorgonzola:[pizza_test[3], "bild/gorgonzola.png"],
+            sausage: [pizza_test[4], "bild/korv.png"],
+            artichoke: [pizza_test[5], "bild/kronartskocka.png"],
+            mozzarella: [pizza_test[6], "bild/mozzarella.png"],
+            olive: [pizza_test[7], "bild/oliv.png"],
+            bellpepper: [pizza_test[8], "bild/paprika.png"],
+            parmesan: [pizza_test[9], "bild/parmesan.png"],
+            pecorino: [pizza_test[10], "bild/pecorino.png"],
+            ham: [pizza_test[11], "bild/skinka.jpeg"],
+            mushroom: [pizza_test[12], "bild/svamp.png"],
+            zucchini: [pizza_test[13], "bild/zucchini.png"],
         }
         
         toppings = [toppings_q0, toppings_q1, toppings_q2, toppings_q3]
+
+
+
         
         quarters = Array.from( document.getElementsByClassName("quarters") )
         
@@ -345,6 +351,10 @@
 
         }
 
+        toppings[0][topping_type][0] = add_topping(toppings[0][topping_type][1], 0, toppings[0][topping_type][0])
+        toppings[1][topping_type][0] = add_topping(toppings[1][topping_type][1], 1, toppings[1][topping_type][0])
+        toppings[2][topping_type][0] = add_topping(toppings[2][topping_type][1], 2, toppings[2][topping_type][0])
+        toppings[3][topping_type][0] = add_topping(toppings[3][topping_type][1], 3, toppings[3][topping_type][0])
         }
 
         topping_manager("aubergine")
@@ -361,6 +371,8 @@
         topping_manager("ham")
         topping_manager("mushroom")
         topping_manager("zucchini")
+
+
 
         quarters.forEach(quarter => {
             quarter.addEventListener('click', () => {select(quarter)} )
@@ -380,8 +392,13 @@
         
         done_button = document.getElementById("done")
 
-        done.onclick = () => {toppings.forEach(topping => {
-            console.log("\n quarter \n")
+       
+        done.onclick = () => {
+            i = 0, 
+            
+            toppings.forEach(topping => {
+            i += 1
+            console.log(`\n quarter ${i}\n`)
 
             Object.values(topping).forEach(topp => {
                 if (topp[0] > 0){

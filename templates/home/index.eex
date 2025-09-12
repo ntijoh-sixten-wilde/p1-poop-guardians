@@ -1,6 +1,6 @@
     <header><img id="banner" src="images/Grafiskt material/tonys-pizza-logo.svg" alt="">
-
-    <img src="images/Grafiskt material/tonys-pizza-basket.svg" id="basket-img" alt=""></header>
+    <a id="basket-link" href="basket"><img src="images/Grafiskt material/tonys-pizza-basket.svg" id="basket-img" alt=""></a>
+    </header>
 
     <section id="menu-section">
         <div id="pizza-container">

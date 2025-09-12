@@ -381,10 +381,17 @@
 
         function clear_all_data(){
             possible_toppings.forEach(topping => {
-                toppings[0][topping][0] = 0
-                toppings[1][topping][0] = 0
-                toppings[2][topping][0] = 0
-                toppings[3][topping][0] = 0
+                
+                for (let i = 0; i < 4; i++) {
+                
+                    
+                    if (!quarters[i].classList.contains("blur_both")){
+                        
+                        toppings[i][topping][0] = 0
+    
+                        
+                    }
+                }
             })
         }
 
@@ -414,10 +421,16 @@
         reload_toppings()
         
         function clear_all_topping_img(){
+            i = 0
             topping_class.forEach(topping_side => {
                 Array.from(topping_side).forEach(topping => {
-                    topping.remove()
+                    if (!quarters[i].classList.contains("blur_both")){
+
+                        topping.remove()
+                    }
                 });
+
+                i+=1
                 
             });
         }

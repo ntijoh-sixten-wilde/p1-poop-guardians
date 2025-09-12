@@ -2,13 +2,9 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
-<<<<<<< HEAD
-  alias Pluggy.FruitController
-=======
 
   alias Pluggy.HomeController
   alias Pluggy.PizzaController
->>>>>>> f698b457d3ec3d4e53d136cccbf7735cdcba5471
   alias Pluggy.UserController
   alias Pluggy.BasketController
 
@@ -28,29 +24,20 @@ defmodule Pluggy.Router do
   plug(:match)
   plug(:dispatch)
 
-<<<<<<< HEAD
   get("/fruits", do: FruitController.index(conn))
   get("/fruits/new", do: FruitController.new(conn))
   get("/fruits/:id", do: FruitController.show(conn, id))
   get("/fruits/:id/edit", do: FruitController.edit(conn, id))
-=======
-<<<<<<< HEAD
 
   get("/", do: HomeController.index(conn))
-<<<<<<< HEAD
   get("/basket", do: BasketController.index(conn))
-=======
 
 
-=======
   get("/", do: HomeController.index(conn))
->>>>>>> cb27eec329f74bcdeee81daf7cc427ebba7d05cc
->>>>>>> fc8027e9d5031aea147c1e4efa3f3c22ae0fc3ae
   get("/pizzas", do: PizzaController.index(conn))
   get("/pizzas/new", do: PizzaController.new(conn))
   get("/pizzas/:id", do: PizzaController.show(conn, id))
   get("/pizzas/:id/edit", do: PizzaController.edit(conn, id))
->>>>>>> f698b457d3ec3d4e53d136cccbf7735cdcba5471
 
   post("/fruits", do: FruitController.create(conn, conn.body_params))
 

@@ -46,11 +46,15 @@ defmodule Mix.Tasks.Seed do
   defp seed_data() do
     IO.puts("Seeding data")
 
-    Postgrex.query!(DB, "INSERT INTO pizzas (order_id, completion, pizza_name, price, glutenfree, size, tomato, mozzarella, parmesan, pecorino, gorgonzola, ham, basil, mushroom, artichoke, olives, pepper, salami, aubergine, zucchini, chili) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)",
-      [1, 0, "Margherita", 85, false, false, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    Postgrex.query!(DB, "INSERT INTO pizzas (order_id, completion, pizza_name, price, glutenfree, size, tomato, mozzarella, parmesan, pecorino, gorgonzola, ham, basil, mushroom, artichoke, olives, pepper, salami, aubergine, zucchini, chili)
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)"
+ 
+    [1, 0, "Margherita", 85, false, false, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [2, 0, "Capricciosa", 85, false, false, 2, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0],
 
       pool: DBConnection.ConnectionPool
     )
+
 
 
     Postgrex.query!(

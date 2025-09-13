@@ -1,7 +1,6 @@
 {application,pluggy,
              [{modules,['Elixir.Mix.Tasks.Seed','Elixir.Pluggy',
-                        'Elixir.Pluggy.HomeController','Elixir.Pluggy.Pizza',
-                        'Elixir.Pluggy.PizzaController',
+                        'Elixir.Pluggy.Pizza','Elixir.Pluggy.PizzaController',
                         'Elixir.Pluggy.Router','Elixir.Pluggy.Supervisor',
                         'Elixir.Pluggy.Template','Elixir.Pluggy.User',
                         'Elixir.Pluggy.UserController']},

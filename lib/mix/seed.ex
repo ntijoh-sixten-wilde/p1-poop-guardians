@@ -56,7 +56,7 @@ defmodule Mix.Tasks.Seed do
   defp create_tables() do
     IO.puts("Creating tables")
 
-    # PIZZAS
+     # PIZZAS
     Postgrex.query!(
       DB,
       "Create TABLE pizzas (id SERIAL, name VARCHAR(255) NOT NULL, image VARCHAR(255) NOT NULL)",
@@ -87,19 +87,38 @@ defmodule Mix.Tasks.Seed do
       [],
       pool: DBConnection.ConnectionPool
     )
+
+    Postgrex.query!(
+      DB,
+      "Create TABLE fruits (id SERIAL, name VARCHAR(255) NOT NULL, tastiness INTEGER NOT NULL)",
+      [],
+      pool: DBConnection.ConnectionPool
+    )
   end
 
   defp seed_data() do
     IO.puts("Seeding data")
 
-    pizzas = [["Margherita", "priv/static/uploads/margherita.svg"],
-              ["Capricciosa", "priv/static/uploads/capricciosa.svg"],
-              ["Marinara", "priv/static/uploads/marinara.svg"],
-              ["Quattro formaggi", "priv/static/uploads/quattro-formaggi.svg"],
-              ["Prosciutto e funghi", "priv/static/uploads/prosciutto-e-funghi.svg"],
-              ["Ortolana", "priv/static/uploads/ortolana.svg"],
-              ["Quattro stagioni", "priv/static/uploads/quattro-stagioni.svg"],
-              ["Diavola", "priv/static/uploads/diavola.svg"]]
+    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Apple", 5],
+      pool: DBConnection.ConnectionPool
+    )
+
+    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Pear", 4],
+      pool: DBConnection.ConnectionPool
+    )
+
+    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Banana", 7],
+      pool: DBConnection.ConnectionPool
+    )
+
+    pizzas = [["Margherita", "margherita.svg"],
+              ["Capricciosa", "capricciosa.svg"],
+              ["Marinara", "marinara.svg"],
+              ["Quattro formaggi", "quattro-formaggi.svg"],
+              ["Prosciutto e funghi", "prosciutto-e-funghi.svg"],
+              ["Ortolana", "ortolana.svg"],
+              ["Quattro stagioni", "quattro-stagioni.svg"],
+              ["Diavola", "diavola.svg"]]
     add_list_to_pizza_table(pizzas)
 
 

@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/pluggy.css">
+<meta charset="utf-8">
+<header><img id="banner" src="/uploads/tonys-pizza-logo.svg" alt="tonys logo">
+
+<img src="/uploads/tonys-pizza-basket.svg" id="basket-img" alt=tonys basket"></header>
+
+
+
+<section id="menu-section">
+  <%= for pizza <- pizzas do %>
+    <div id="pizza-container">
+      <div class="pizza-card">
+
+        <img src="/uploads/<%= pizza.image %>" alt="<%= pizza.name %>"/>
+
+        <div class="info-container">
+          <h3><%= pizza.name %></h3>
+          <ul>
+            <%= for ingredient <- pizza.ingredients do %>
+              <li><%= ingredient %></li>
+            <% end %>
+          </ul>
+
+          <div class="button-container">
+            <button class="customize-button" onclick="window.location.href='/edit'">Anpassa</button>
+            <button class="purchase-button">Köp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>

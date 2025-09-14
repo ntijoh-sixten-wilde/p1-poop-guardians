@@ -7,12 +7,10 @@
 
 
 <section id="menu-section">
-  <%= for pizza <- pizzas do %>
-    <div id="pizza-container">
+  <div id="pizza-container">
+    <%= for pizza <- pizzas do %>
       <div class="pizza-card">
-
         <img src="/uploads/<%= pizza.image %>" alt="<%= pizza.name %>"/>
-
         <div class="info-container">
           <h3><%= pizza.name %></h3>
           <ul>
@@ -20,13 +18,11 @@
               <li><%= ingredient %></li>
             <% end %>
           </ul>
-
           <div class="button-container">
             <button class="customize-button" onclick="window.location.href='/edit'">Anpassa</button>
             <button class="purchase-button">Köp</button>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</section>
+    <% end %>
+  </div>

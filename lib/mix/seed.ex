@@ -51,6 +51,7 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "DROP TABLE IF EXISTS fruits", [], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizzas", [], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "DROP TABLE IF EXISTS users", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS orders", [], pool: DBConnection.ConnectionPool)
   end
 
   defp create_tables() do
@@ -76,6 +77,14 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(
       DB,
       "Create TABLE recepies (pizza_id INTEGER NOT NULL, ingredient_id INTEGER NOT NULL)",
+      [],
+      pool: DBConnection.ConnectionPool
+    )
+
+    # ORDERS
+    Postgrex.query!(
+      DB,
+      "Create TABLE orders (name VARCHAR(255) NOT NULL, order_id INTEGER NOT NULL, pizza_id INTEGER NOT NULL, ingredient_id INTEGER NOT NULL)",
       [],
       pool: DBConnection.ConnectionPool
     )

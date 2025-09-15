@@ -3,6 +3,9 @@ defmodule Pluggy.Router do
   use Plug.Debugger
 
   alias Pluggy.BasketController
+  import Pluggy.Template
+
+
   alias Pluggy.PizzaController
   alias Pluggy.UserController
 
@@ -28,6 +31,15 @@ defmodule Pluggy.Router do
   get("/basket", do: BasketController.index(conn))
 
   get("/orders", do: OrdersController.index(conn))
+  get "/edit" do
+  id = conn.params["id"]
+  send_resp(conn, 200, render("Slask/slask", assigns: [id: id]))
+  end
+
+  get "/edit/done" do
+  topping_id_system = conn.params["topping_id_system"]
+  send_resp(conn, 200, render("Slask/slask", assigns: [topping_id_system: topping_id_system]))
+  end
 
   get("/pizzas", do: PizzaController.index(conn))
 

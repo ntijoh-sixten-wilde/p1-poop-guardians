@@ -516,6 +516,8 @@
 
 
             swedish_full_recipe_list = []
+
+            output_list = []
             toppings.forEach(topping => {
             i += 1
 
@@ -536,9 +538,9 @@
                     case 3: swedish_ammount = " (mycket) \n"; break
                 }
 
+                swedish_quarter_recipe += swedish_name + swedish_ammount
 
-                    swedish_quarter_recipe += swedish_name + swedish_ammount
-
+                output_list.push(swedish_name)
             });
 
             // console.log(swedish_quarter_recipe)
@@ -553,7 +555,18 @@
             swedish_full_recipe += quarter
         });
 
-        console.log(swedish_full_recipe)
+        topping_exists = []
+
+        // for (let i = 0; i < 14; i++) {
+        //     topping_exists.push(output_list[i] != '')
+        //     console.log(output_list[i])
+        // }
+
+        possible_toppings.forEach(topping_key => {
+            topping_exists.push(toppings_q0[topping_key][0])
+        });
+
+        console.log(topping_exists)
     }
 
         clear_button.onclick = () => {

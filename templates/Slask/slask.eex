@@ -20,6 +20,8 @@
     </style>
 </head>
 <body>
+    <%= @new_id %> <br>
+    <%= @pre_set %> <br>
     <%= @topping_id_system %>
     <div id="pizza_base" style="background-image: url(bild/pizza_grund.png); width: 400px; height: 400px; display: grid; grid-template-columns: repeat(2, 1fr);">
 
@@ -129,7 +131,7 @@
     <button id="done_button">klar</button>
 
     <script>
-
+        
         incomming = [
                 [1, 1],
                 [1, 2],
@@ -191,7 +193,7 @@
                 }
             });
         }
-    pizza_chosen(<%= @id %>)
+    pizza_chosen(<%= @pre_set %>)
 
 
         toppings_q0 = {
@@ -583,7 +585,7 @@
 
 
 
-        window.location.href = `/edit/done?topping_id_system=${topping_id_system}`
+        window.location.href = `/edit/done?topping_id_system=${topping_id_system}&pre_set=<%= @pre_set %>`
 
     }
 

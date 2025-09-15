@@ -20,7 +20,7 @@
             <% end %>
 
           <div class="button-container">
-            <button class="customize-button" onclick="window.location.href='/edit?id=<%= pizza.id %>'">Anpassa</button>
+            <button class="customize-button" onclick="window.location.href='/edit?pre_set=<%= pizza.id %>'">Anpassa</button>
             <button class="purchase-button">Köp</button>
           </div>
         </div>

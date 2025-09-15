@@ -28,13 +28,31 @@ defmodule Pluggy.Router do
   post("/users/logout", do: UserController.logout(conn))
 
   get "/edit" do
-  id = conn.params["id"]
-  send_resp(conn, 200, render("Slask/slask", assigns: [id: id]))
+  pre_set = conn.params["pre_set"]
+  send_resp(conn, 200, render("Slask/slask", assigns: [pre_set: pre_set]))
   end
 
+  pre_set_names = ["Margherita",
+              "Capricciosa",
+              "Marinara",
+              "Quattro formaggi",
+              "Prosciutto e funghi",
+              "Ortolana",
+              "Quattro stagioni",
+              "Diavola"]
+
   get "/edit/done" do
+  pre_set = conn.params["pre_set"]
   topping_id_system = conn.params["topping_id_system"]
-  send_resp(conn, 200, render("Slask/slask", assigns: [topping_id_system: topping_id_system]))
+  last_id = Postgrex.query!(DB, "SELECT pizza_id FROM recepies ORDER BY pizza_id DESC").rows
+
+  send_resp(conn, 200, render("Slask/slask", assigns:
+  [
+    topping_id_system: topping_id_system,
+    pre_set: pre_set,
+    new_id: hd(hd(last_id)) + 1
+  ]
+  ))
   end
 
   get("/pizzas", do: PizzaController.index(conn))

@@ -52,12 +52,14 @@ defmodule Mix.Tasks.Seed do
     Postgrex.query!(DB, "DROP TABLE IF EXISTS pizzas", [], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "DROP TABLE IF EXISTS users", [], pool: DBConnection.ConnectionPool)
     Postgrex.query!(DB, "DROP TABLE IF EXISTS orders", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS pizza_orders", [], pool: DBConnection.ConnectionPool)
+    Postgrex.query!(DB, "DROP TABLE IF EXISTS irecipes", [], pool: DBConnection.ConnectionPool)
   end
 
   defp create_tables() do
     IO.puts("Creating tables")
 
-     # PIZZAS
+    # PIZZAS
     Postgrex.query!(
       DB,
       "Create TABLE pizzas (id SERIAL, name VARCHAR(255) NOT NULL, image VARCHAR(255) NOT NULL)",
@@ -65,7 +67,7 @@ defmodule Mix.Tasks.Seed do
       pool: DBConnection.ConnectionPool
     )
 
-    #INGREDIENTS
+    # INGREDIENTS
     Postgrex.query!(
       DB,
       "Create TABLE ingredients (id SERIAL, name VARCHAR(255) NOT NULL)",
@@ -84,7 +86,23 @@ defmodule Mix.Tasks.Seed do
     # ORDERS
     Postgrex.query!(
       DB,
-      "Create TABLE orders (name VARCHAR(255) NOT NULL, order_id INTEGER NOT NULL, pizza_id INTEGER NOT NULL, ingredient_id INTEGER NOT NULL)",
+      "Create TABLE orders (username VARCHAR(255) NOT NULL, pizza_id INTEGER NOT NULL, order_id INTEGER NOT NULL, status INTEGER NOT NULL)",
+      [],
+      pool: DBConnection.ConnectionPool
+    )
+
+    # IRECIPES
+    Postgrex.query!(
+      DB,
+      "Create TABLE irecipes (pizza_id INTEGER NOT NULL, ingredient_id INTEGER NOT NULL)",
+      [],
+      pool: DBConnection.ConnectionPool
+    )
+
+    #PIZZAORDERS
+    Postgrex.query!(
+      DB,
+      "Create TABLE pizza_orders (order_id INTEGER NOT NULL, pizza_id INTEGER NOT NULL)",
       [],
       pool: DBConnection.ConnectionPool
     )
@@ -97,28 +115,10 @@ defmodule Mix.Tasks.Seed do
       pool: DBConnection.ConnectionPool
     )
 
-    Postgrex.query!(
-      DB,
-      "Create TABLE fruits (id SERIAL, name VARCHAR(255) NOT NULL, tastiness INTEGER NOT NULL)",
-      [],
-      pool: DBConnection.ConnectionPool
-    )
   end
 
   defp seed_data() do
     IO.puts("Seeding data")
-
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Apple", 5],
-      pool: DBConnection.ConnectionPool
-    )
-
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Pear", 4],
-      pool: DBConnection.ConnectionPool
-    )
-
-    Postgrex.query!(DB, "INSERT INTO fruits(name, tastiness) VALUES($1, $2)", ["Banana", 7],
-      pool: DBConnection.ConnectionPool
-    )
 
     pizzas = [["Margherita", "margherita.svg"],
               ["Capricciosa", "capricciosa.svg"],
@@ -193,6 +193,10 @@ defmodule Mix.Tasks.Seed do
                 [8, 15]]
 
     add_list_to_recepies_table(recepies)
+
+
+
+
 
     # USERS
     Postgrex.query!(

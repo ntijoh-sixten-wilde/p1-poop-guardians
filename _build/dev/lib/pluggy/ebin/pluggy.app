@@ -1,5 +1,7 @@
 {application,pluggy,
              [{modules,['Elixir.Mix.Tasks.Seed','Elixir.Pluggy',
+                        'Elixir.Pluggy.Order','Elixir.Pluggy.OrderController',
+                        'Elixir.Pluggy.Pizza','Elixir.Pluggy.PizzaController',
                         'Elixir.Pluggy.BasketController',
                         'Elixir.Pluggy.Fruit','Elixir.Pluggy.FruitController',
                         'Elixir.Pluggy.Orders','Elixir.Pluggy.Pizza',

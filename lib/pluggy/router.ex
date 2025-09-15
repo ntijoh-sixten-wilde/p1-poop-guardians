@@ -2,6 +2,7 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
+  alias Pluggy.BasketController
   import Pluggy.Template
 
 
@@ -24,9 +25,12 @@ defmodule Pluggy.Router do
   plug(:match)
   plug(:dispatch)
 
-  post("/users/login", do: UserController.login(conn, conn.body_params))
-  post("/users/logout", do: UserController.logout(conn))
+  # post("/users/login", do: UserController.login(conn, conn.body_params))
+  # post("/users/logout", do: UserController.logout(conn))
 
+  get("/basket", do: BasketController.index(conn))
+
+  get("/orders", do: OrdersController.index(conn))
   get "/edit" do
   pre_set = conn.params["pre_set"]
   send_resp(conn, 200, render("Slask/slask", assigns: [pre_set: pre_set]))
@@ -56,17 +60,21 @@ defmodule Pluggy.Router do
   end
 
   get("/pizzas", do: PizzaController.index(conn))
-  get("/pizzas/new", do: PizzaController.new(conn))
-  get("/pizzas/:id", do: PizzaController.show(conn, id))
-  get("/pizzas/:id/edit", do: PizzaController.edit(conn, id))
 
-  post("/pizzas", do: PizzaController.create(conn, conn.body_params))
+  # get("/pizzas/new", do: PizzaController.new(conn))
+  # get("/pizzas/:id", do: PizzaController.show(conn, id))
+  # get("/pizzas/:id/edit", do: PizzaController.edit(conn, id))
 
-  # should be put /pizzas/:id, but put/patch/delete are not supported without hidden inputs
-  post("/pizzas/:id/edit", do: PizzaController.update(conn, id, conn.body_params))
+  # post("/pizzas", do: PizzaController.create(conn, conn.body_params))
 
-  # should be delete /pizzas/:id, but put/patch/delete are not supported without hidden inputs
-  post("/pizzas/:id/destroy", do: PizzaController.destroy(conn, id))
+  post("/pizzas/:id/add", do: OrderController.add(conn, id))
+
+
+  # # should be put /pizzas/:id, but put/patch/delete are not supported without hidden inputs
+  # post("/pizzas/:id/edit", do: PizzaController.update(conn, id, conn.body_params))
+
+  # # should be delete /pizzas/:id, but put/patch/delete are not supported without hidden inputs
+  # post("/pizzas/:id/destroy", do: PizzaController.destroy(conn, id))
 
 
 

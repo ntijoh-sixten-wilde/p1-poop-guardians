@@ -1,12 +1,13 @@
 <link rel="stylesheet" href="/pluggy.css">
 <meta charset="utf-8">
-<header><img id="banner" src="/uploads/tonys-pizza-logo.svg" alt="tonys logo">
 
-<img src="/uploads/tonys-pizza-basket.svg" id="basket-img" alt=tonys basket"></header>
+<header>
+    <img id="banner" src="/uploads/tonys-pizza-logo.svg" alt="tonys logo">
 
+    <a id="basket-link" href="basket"><img src="/uploads/tonys-pizza-basket.svg" id="basket-img" alt="tonys basket"></a>
+</header>
 
-
-<section id="menu-section">
+<main>
   <div id="pizza-container">
     <%= for pizza <- pizzas do %>
       <div class="pizza-card">
@@ -15,9 +16,9 @@
           <h3><%= pizza.name %></h3>
           <ul>
             <%= for ingredient <- pizza.ingredients do %>
-              <li><%= ingredient %></li>
+              <%= ingredient %> <br>
             <% end %>
-          </ul>
+
           <div class="button-container">
             <button class="customize-button" onclick="window.location.href='/edit'">Anpassa</button>
             <button class="purchase-button">Köp</button>
@@ -26,3 +27,10 @@
       </div>
     <% end %>
   </div>
+</main>
+
+<br>
+<br>
+<br>
+<br>
+<br>

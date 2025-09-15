@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+    <%= @topping_id_system %>
     <div id="pizza_base" style="background-image: url(bild/pizza_grund.png); width: 400px; height: 400px; display: grid; grid-template-columns: repeat(2, 1fr);">
 
         <div id="north_west" class="quarters">
@@ -566,7 +567,24 @@
             topping_exists.push(toppings_q0[topping_key][0])
         });
 
+        topping_id_system = [0]
+
         console.log(topping_exists)
+
+        i = 0
+        topping_exists.forEach(exists_individual => {
+            if (exists_individual > 0){
+                topping_id_system.push(i+1)
+            }
+            i++
+        });
+
+        console.log(topping_id_system)
+
+
+
+        window.location.href = `/edit/done?topping_id_system=${topping_id_system}`
+
     }
 
         clear_button.onclick = () => {

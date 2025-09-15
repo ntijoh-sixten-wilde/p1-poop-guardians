@@ -190,7 +190,7 @@
                 }
             });
         }
-    pizza_chosen(4)
+    pizza_chosen(5)
 
 
         toppings_q0 = {
@@ -566,7 +566,21 @@
             topping_exists.push(toppings_q0[topping_key][0])
         });
 
+        topping_id_system = [0]
+
         console.log(topping_exists)
+
+        i = 0
+        topping_exists.forEach(exists_individual => {
+            if (exists_individual > 0){
+                topping_id_system.push(i+1)
+            }
+            i++
+        });
+
+        console.log(topping_id_system)
+
+        window.location.href = '/pizzas'
     }
 
         clear_button.onclick = () => {

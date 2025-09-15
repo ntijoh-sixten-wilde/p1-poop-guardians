@@ -32,6 +32,11 @@ defmodule Pluggy.Router do
   send_resp(conn, 200, render("Slask/slask", assigns: [id: id]))
   end
 
+  get "/edit/done" do
+  topping_id_system = conn.params["topping_id_system"]
+  send_resp(conn, 200, render("Slask/slask", assigns: [topping_id_system: topping_id_system]))
+  end
+
   get("/pizzas", do: PizzaController.index(conn))
   get("/pizzas/new", do: PizzaController.new(conn))
   get("/pizzas/:id", do: PizzaController.show(conn, id))

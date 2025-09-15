@@ -6,23 +6,35 @@
 header{
     display: flex;
     justify-content: center;
+    align-items: center;
+
 }
+
+
 
 #banner {
     width: 40%;
-    margin-left: 145px;
+
 }
 
 #basket-img{
     margin-left: 25px;
-    width: 6%;
+    width: 6em;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
 }
 
 #pizza-container{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 30em;
-    margin-right: 20em;
+    
+    width: 50em;
+    justify-content: center;
+    align-self: auto;
 }
 
 .pizza-card{

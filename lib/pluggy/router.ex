@@ -2,6 +2,9 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
+  import Pluggy.Template
+
+
   alias Pluggy.PizzaController
   alias Pluggy.UserController
 
@@ -24,6 +27,10 @@ defmodule Pluggy.Router do
   post("/users/login", do: UserController.login(conn, conn.body_params))
   post("/users/logout", do: UserController.logout(conn))
 
+  get "/edit" do
+  id = conn.params["id"]
+  send_resp(conn, 200, render("Slask/slask", assigns: [id: id]))
+  end
 
   get("/pizzas", do: PizzaController.index(conn))
   get("/pizzas/new", do: PizzaController.new(conn))

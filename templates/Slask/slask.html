@@ -129,81 +129,136 @@
 
     <script>
 
+        incomming = [
+                [1, 1],
+                [1, 2],
+                [1, 7],
+
+                [2, 1],
+                [2, 2],
+                [2, 6],
+                [2, 8],
+                [2, 9],
+
+                [3, 1],
+
+                [4, 1],
+                [4, 2],
+                [4, 3],
+                [4, 4],
+                [4, 5],
+
+                [5, 1],
+                [5, 2],
+                [5, 6],
+                [5, 8],
+
+                [6, 1],
+                [6, 2],
+                [6, 11],
+                [6, 13],
+                [6, 14],
+
+                [7, 1],
+                [7, 2],
+                [7, 6],
+                [7, 8],
+                [7, 14],
+                [7, 10],
+
+                [8, 1],
+                [8, 2],
+                [8, 12],
+                [8, 11],
+                [8, 15]
+            ]
 
         // function pixel_increase(pixels, increase){return parseInt(pixels) + increase + "px"}
         function random_int(max){ return Math.floor( Math.random() * (max+1) ) }
         
         pizza_base_plate = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-        pizza_test = [3, 2, 1, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0]
         
-        pizza = pizza_test
+        pizza = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+
+        function pizza_chosen(id){
+
+            incomming.forEach(ing => {
+                if (ing[0] == id){
+                    pizza[ing[1] -2] = 2
+                }
+            });
+        }
+
+    pizza_chosen(7)
+
         
         toppings_q0 = {
-            aubergine: [pizza[0], "bild/aubergine.png"],
-            basil: [pizza[1], "bild/basilika.png"],
-            chili: [pizza[2], "bild/chili.png"],
-            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
-            sausage: [pizza[4], "bild/korv.png"],
-            artichoke: [pizza[5], "bild/kronartskocka.png"],
-            mozzarella: [pizza[6], "bild/mozzarella.png"],
-            olive: [pizza[7], "bild/oliv.png"],
-            bellpepper: [pizza[8], "bild/paprika.png"],
-            parmesan: [pizza[9], "bild/parmesan.png"],
-            pecorino: [pizza[10], "bild/pecorino.png"],
-            ham: [pizza[11], "bild/skinka.jpeg"],
-            mushroom: [pizza[12], "bild/svamp.png"],
-            zucchini: [pizza[13], "bild/zucchini.png"],
+            mozzarella: [pizza[0+2], "bild/mozzarella.png"],
+            parmesan: [pizza[1+2], "bild/parmesan.png"],
+            gorgonzola:[pizza[2+2], "bild/gorgonzola.png"],
+            pecorino: [pizza[3+2], "bild/pecorino.png"],
+            ham: [pizza[4+2], "bild/skinka.jpeg"],
+            basil: [pizza[5+2], "bild/basilika.png"],
+            mushroom: [pizza[6+2], "bild/svamp.png"],
+            artichoke: [pizza[7+2], "bild/kronartskocka.png"],
+            olive: [pizza[8+2], "bild/oliv.png"],
+            bellpepper: [pizza[9+2], "bild/paprika.png"],
+            sausage: [pizza[10+2], "bild/korv.png"],
+            aubergine: [pizza[11+2], "bild/aubergine.png"],
+            zucchini: [pizza[12+2], "bild/zucchini.png"],
+            chili: [pizza[13+2], "bild/chili.png"],
         }
         toppings_q1 = {
-            aubergine: [pizza[0], "bild/aubergine.png"],
-            basil: [pizza[1], "bild/basilika.png"],
-            chili: [pizza[2], "bild/chili.png"],
-            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
-            sausage: [pizza[4], "bild/korv.png"],
-            artichoke: [pizza[5], "bild/kronartskocka.png"],
-            mozzarella: [pizza[6], "bild/mozzarella.png"],
-            olive: [pizza[7], "bild/oliv.png"],
-            bellpepper: [pizza[8], "bild/paprika.png"],
-            parmesan: [pizza[9], "bild/parmesan.png"],
-            pecorino: [pizza[10], "bild/pecorino.png"],
-            ham: [pizza[11], "bild/skinka.jpeg"],
-            mushroom: [pizza[12], "bild/svamp.png"],
-            zucchini: [pizza[13], "bild/zucchini.png"],
+            mozzarella: [pizza[0+2], "bild/mozzarella.png"],
+            parmesan: [pizza[1+2], "bild/parmesan.png"],
+            gorgonzola:[pizza[2+2], "bild/gorgonzola.png"],
+            pecorino: [pizza[3+2], "bild/pecorino.png"],
+            ham: [pizza[4+2], "bild/skinka.jpeg"],
+            basil: [pizza[5+2], "bild/basilika.png"],
+            mushroom: [pizza[6+2], "bild/svamp.png"],
+            artichoke: [pizza[7+2], "bild/kronartskocka.png"],
+            olive: [pizza[8+2], "bild/oliv.png"],
+            bellpepper: [pizza[9+2], "bild/paprika.png"],
+            sausage: [pizza[10+2], "bild/korv.png"],
+            aubergine: [pizza[11+2], "bild/aubergine.png"],
+            zucchini: [pizza[12+2], "bild/zucchini.png"],
+            chili: [pizza[13+2], "bild/chili.png"],
         }
         toppings_q2 = {
-            aubergine: [pizza[0], "bild/aubergine.png"],
-            basil: [pizza[1], "bild/basilika.png"],
-            chili: [pizza[2], "bild/chili.png"],
-            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
-            sausage: [pizza[4], "bild/korv.png"],
-            artichoke: [pizza[5], "bild/kronartskocka.png"],
-            mozzarella: [pizza[6], "bild/mozzarella.png"],
-            olive: [pizza[7], "bild/oliv.png"],
-            bellpepper: [pizza[8], "bild/paprika.png"],
-            parmesan: [pizza[9], "bild/parmesan.png"],
-            pecorino: [pizza[10], "bild/pecorino.png"],
-            ham: [pizza[11], "bild/skinka.jpeg"],
-            mushroom: [pizza[12], "bild/svamp.png"],
-            zucchini: [pizza[13], "bild/zucchini.png"],
+            mozzarella: [pizza[0+2], "bild/mozzarella.png"],
+            parmesan: [pizza[1+2], "bild/parmesan.png"],
+            gorgonzola:[pizza[2+2], "bild/gorgonzola.png"],
+            pecorino: [pizza[3+2], "bild/pecorino.png"],
+            ham: [pizza[4+2], "bild/skinka.jpeg"],
+            basil: [pizza[5+2], "bild/basilika.png"],
+            mushroom: [pizza[6+2], "bild/svamp.png"],
+            artichoke: [pizza[7+2], "bild/kronartskocka.png"],
+            olive: [pizza[8+2], "bild/oliv.png"],
+            bellpepper: [pizza[9+2], "bild/paprika.png"],
+            sausage: [pizza[10+2], "bild/korv.png"],
+            aubergine: [pizza[11+2], "bild/aubergine.png"],
+            zucchini: [pizza[12+2], "bild/zucchini.png"],
+            chili: [pizza[13+2], "bild/chili.png"],
         }
 
 
         toppings_q3 = {
-            aubergine: [pizza[0], "bild/aubergine.png"],
-            basil: [pizza[1], "bild/basilika.png"],
-            chili: [pizza[2], "bild/chili.png"],
-            gorgonzola:[pizza[3], "bild/gorgonzola.png"],
-            sausage: [pizza[4], "bild/korv.png"],
-            artichoke: [pizza[5], "bild/kronartskocka.png"],
-            mozzarella: [pizza[6], "bild/mozzarella.png"],
-            olive: [pizza[7], "bild/oliv.png"],
-            bellpepper: [pizza[8], "bild/paprika.png"],
-            parmesan: [pizza[9], "bild/parmesan.png"],
-            pecorino: [pizza[10], "bild/pecorino.png"],
-            ham: [pizza[11], "bild/skinka.jpeg"],
-            mushroom: [pizza[12], "bild/svamp.png"],
-            zucchini: [pizza[13], "bild/zucchini.png"],
+            mozzarella: [pizza[0+2], "bild/mozzarella.png"],
+            parmesan: [pizza[1+2], "bild/parmesan.png"],
+            gorgonzola:[pizza[2+2], "bild/gorgonzola.png"],
+            pecorino: [pizza[3+2], "bild/pecorino.png"],
+            ham: [pizza[4+2], "bild/skinka.jpeg"],
+            basil: [pizza[5+2], "bild/basilika.png"],
+            mushroom: [pizza[6+2], "bild/svamp.png"],
+            artichoke: [pizza[7+2], "bild/kronartskocka.png"],
+            olive: [pizza[8+2], "bild/oliv.png"],
+            bellpepper: [pizza[9+2], "bild/paprika.png"],
+            sausage: [pizza[10+2], "bild/korv.png"],
+            aubergine: [pizza[11+2], "bild/aubergine.png"],
+            zucchini: [pizza[12+2], "bild/zucchini.png"],
+            chili: [pizza[13+2], "bild/chili.png"],
         }
         
         toppings = [toppings_q0, toppings_q1, toppings_q2, toppings_q3]

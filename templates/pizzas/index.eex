@@ -21,10 +21,7 @@
 
           <div class="button-container">
             <button class="customize-button" onclick="window.location.href='/edit?pre_set=<%= pizza.id %>'">Anpassa</button>
-            <button class="purchase-button">Köp</button>
-            <form action="/pizzas/<%= pizza.id %>/add" method="post">
-              <button type=submit>Köp</button>
-            </form>
+            <button class="customize-button" onclick="window.location.href='/pizzas/add?id=<%= pizza.id %>'">Köp</button>
           </div>
         </div>
       </div>

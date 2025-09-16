@@ -53,7 +53,7 @@ defmodule Pluggy.OrderController do
         nil -> nil
         _ -> User.get(session_user)
       end
-    send_resp(conn, 200, render("pizzas/index", Pizzas: Order.add_to_order(id), user: current_user))
+    Order.add_to_order(id)
   end
 
   defp redirect(conn, url) do

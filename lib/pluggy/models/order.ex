@@ -24,5 +24,22 @@ defmodule Pluggy.Order do
   end
 
   def add_to_order(id) do
+
+    {int_val, ""} = Integer.parse(id)
+
+      Postgrex.query!(
+        DB,
+        "INSERT INTO order_recipes (pizza_id, ingredient_id)
+         SELECT * FROM recepies WHERE pizza_id = #{int_val}",
+        []
+      )
+
+      Postgrex.query!(
+        DB,
+        "INSERT INTO order_recipes (pizza_id, ingredient_id)
+         SELECT * FROM recepies WHERE pizza_id = #{int_val}",
+        []
+      )
+
   end
 end

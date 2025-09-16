@@ -5,7 +5,7 @@ defmodule Pluggy.Router do
   alias Pluggy.BasketController
   import Pluggy.Template
 
-
+  alias Pluggy.OrderController
   alias Pluggy.PizzaController
   alias Pluggy.UserController
 
@@ -31,6 +31,8 @@ defmodule Pluggy.Router do
   get("/basket", do: BasketController.index(conn))
 
   get("/orders", do: OrdersController.index(conn))
+
+
   get "/edit" do
   pre_set = conn.params["pre_set"]
   send_resp(conn, 200, render("Slask/slask", assigns: [pre_set: pre_set]))
@@ -67,7 +69,11 @@ defmodule Pluggy.Router do
 
   # post("/pizzas", do: PizzaController.create(conn, conn.body_params))
 
-  post("/pizzas/:id/add", do: OrderController.add(conn, id))
+  get "/pizzas/add" do
+    id = conn.params["id"]
+    OrderController.add(conn, id)
+    PizzaController.index(conn)
+  end
 
 
   # # should be put /pizzas/:id, but put/patch/delete are not supported without hidden inputs

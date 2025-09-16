@@ -53,8 +53,10 @@ defmodule Pluggy.OrderController do
         nil -> nil
         _ -> User.get(session_user)
       end
-    Order.add_to_order(id)
+    Order.add_to_order(conn, id)
   end
+
+
 
   defp redirect(conn, url) do
     Plug.Conn.put_resp_header(conn, "location", url) |> send_resp(303, "")

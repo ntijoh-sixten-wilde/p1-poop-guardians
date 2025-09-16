@@ -2,9 +2,9 @@ defmodule Pluggy.Router do
   use Plug.Router
   use Plug.Debugger
 
-  alias Pluggy.BasketController
   import Pluggy.Template
 
+  alias Pluggy.BasketController
   alias Pluggy.OrderController
   alias Pluggy.PizzaController
   alias Pluggy.UserController
@@ -38,14 +38,14 @@ defmodule Pluggy.Router do
   send_resp(conn, 200, render("Slask/slask", assigns: [pre_set: pre_set]))
   end
 
-  pre_set_names = ["Margherita",
-              "Capricciosa",
-              "Marinara",
-              "Quattro formaggi",
-              "Prosciutto e funghi",
-              "Ortolana",
-              "Quattro stagioni",
-              "Diavola"]
+  # pre_set_names = ["Margherita",
+  #             "Capricciosa",
+  #             "Marinara",
+  #             "Quattro formaggi",
+  #             "Prosciutto e funghi",
+  #             "Ortolana",
+  #             "Quattro stagioni",
+  #             "Diavola"]
 
   get "/edit/done" do
   pre_set = conn.params["pre_set"]
@@ -94,4 +94,16 @@ defmodule Pluggy.Router do
       "-- LONG STRING WITH AT LEAST 64 BYTES LONG STRING WITH AT LEAST 64 BYTES --"
     )
   end
+
 end
+
+
+# Plug.Conn.clear_session()
+
+
+
+# Plug.Conn.put_session(:atom, value)
+
+
+
+# order_id = Plug.Conn.get_session(conn, :order_id)
